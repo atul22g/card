@@ -1,10 +1,11 @@
 /*
 !Colors
 */
-import { FETCH_COLORS_REQUEST, FETCH_COLORS_SUCCESS, FETCH_COLORS_FAILURE } from '../actions/action';
+import { FETCH_COLORS_REQUEST, FETCH_COLORS_SUCCESS, FETCH_COLORS_FAILURE, CURRENT_COLOR } from '../actions/action';
 
 const initialState = {
     loading: false,
+    color: '244, 90, 87',
     colors: [],
     error: '',
 };
@@ -29,6 +30,11 @@ const colorsReducer = (state = initialState, action) => {
                 loading: false,
                 colors: [],
                 error: action.payload,
+            };
+        case CURRENT_COLOR:
+            return {
+                ...state,
+                color: action.payload
             };
         default:
             return state;

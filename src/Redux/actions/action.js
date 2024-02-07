@@ -4,6 +4,7 @@
 export const FETCH_COLORS_REQUEST = 'FETCH_COLORS_REQUEST';
 export const FETCH_COLORS_SUCCESS = 'FETCH_COLORS_SUCCESS';
 export const FETCH_COLORS_FAILURE = 'FETCH_COLORS_FAILURE';
+export const CURRENT_COLOR = 'CURRENT_COLOR';
 
 export const fetchColors = () => {
     return dispatch => {
@@ -27,4 +28,9 @@ export const fetchColorsSuccess = colors => ({
 export const fetchColorsFailure = error => ({
     type: FETCH_COLORS_FAILURE,
     payload: error,
+});
+
+export const currentColor = (Color) => ({
+        type: CURRENT_COLOR,
+        payload: Color,
 });

@@ -9,3 +9,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/*  */
+.colors::after{
+    content: "";
+    position: absolute;
+    top: 0.1rem;
+    left: -0.2rem;
+    width: calc(100% + 0.4rem);
+    height: calc(100% + 0.1rem);
+    border-radius: 0.5rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    transition: border .2s;
+}
