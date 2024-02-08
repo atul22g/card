@@ -34,7 +34,8 @@ const colorsReducer = (state = initialState, action) => {
         case CURRENT_COLOR:
             return {
                 ...state,
-                color: action.payload
+                color: action.payload,
+                name: action.payload
             };
         default:
             return state;
