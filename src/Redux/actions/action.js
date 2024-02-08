@@ -34,3 +34,35 @@ export const currentColor = (Color) => ({
         type: CURRENT_COLOR,
         payload: Color,
 });
+
+/*
+! Card Details
+*/
+
+export const FETCT_DETAILS_REQUEST = 'FETCT_DETAILS_REQUEST';
+export const FETCT_DETAILS_SUCCESS = 'FETCT_DETAILS_SUCCESS';
+export const FETCT_DETAILS_FAILURE = 'FETCT_DETAILS_FAILURE';
+
+export const fetchDetails = () => {
+    return dispatch => {
+        dispatch(fetchColorsRequest());
+        fetch('data/details.json')
+            .then(response => response.json())
+            .then(details => dispatch(fetchColorsSuccess(details)))
+            .catch(error => dispatch(fetchColorsFailure(error)));
+    };
+};
+
+export const fetchDetailsRequest = () => ({
+    type: FETCT_DETAILS_REQUEST,
+});
+
+export const fetchDetailsSuccess = details => ({
+    type: FETCT_DETAILS_SUCCESS,
+    payload: details,
+});
+
+export const fetchDetailsFailure = error => ({
+    type: FETCT_DETAILS_FAILURE,
+    payload: error,
+});

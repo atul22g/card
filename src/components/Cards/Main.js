@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from './card'
+import CardText from './CardText'
 
 export const Main = () => {
     return (
@@ -7,6 +8,8 @@ export const Main = () => {
         <div className="flex sm:flex-nowrap flex-wrap">
         {/* Card */}
         <Card/>
+        {/* Card Text */}
+        <CardText/>
         </div>
     )
 }

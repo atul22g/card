@@ -3,24 +3,27 @@ import { connect } from 'react-redux';
 import { fetchColors, currentColor } from '../../Redux/actions/action';
 import { useDispatch } from 'react-redux';
 
-const Card = ({ loding, colors, fetchColors, newColor }) => {
+const Card = ({ loding, colors, fetchColors, Color }) => {
   const dispatch = useDispatch();
-  // const color = useSelector(state => state.color);
 
   useEffect(() => {
     fetchColors();
   }, [fetchColors]);
+  console.log(colors);
   return (
     // Card container
-    <div className="w-[35%] h-screen grid place-content-center" style={{ backgroundColor: `rgba(${newColor}, .25)` }}>
+    <div className="w-[36.5vw] h-screen grid place-content-center max-md:hidden" style={{ backgroundColor: `rgba(${Color}, .25)` }}>
       {/* card */}
-      <div className="min-h-64 w-[60vh] rounded-lg" style={{ backgroundColor: 'white' }}>
-        {/* Card Top Image */}
-        <div className='w-[100%] min-h-[50%] rounded-t-lg' style={{ backgroundColor: `rgb(${newColor})` }}>
+      <div className="w-[28vw] rounded-lg mb-5 shadow-custom">
+        {/* Card Header */}
+        <div className='w-[100%] min-h-[14vh] rounded-t-lg' style={{ backgroundColor: `rgb(${Color})` }}>
+        </div>
+        {/* Card Body */}
+        <div className='w-[100%] min-h-[13vh] rounded-b-lg bg-white'>
         </div>
       </div>
       {/* colors */}
-      <ul className="inline-flex flex-wrap flex-row w-[28vw]">
+      <ul className="inline-flex flex-wrap flex-row w-[25vw]">
         {!loding && colors.map(color => (
           <li className='mt-[.75rem] ml-[.875rem] relative' key={color.id}>
             <button
@@ -28,7 +31,7 @@ const Card = ({ loding, colors, fetchColors, newColor }) => {
               className={`h-[1.5rem] w-[1.5rem] rounded-md outline-offset-[3px] outline-1 outline`}
               style={{
                 backgroundColor: `rgb(${color.color})`,
-                outlineColor: `${newColor === color.color ? color.name : 'transparent'}`,
+                outlineColor: `${Color === color.color ? color.name : 'transparent'}`,
               }}
             ></button>
 
@@ -41,9 +44,8 @@ const Card = ({ loding, colors, fetchColors, newColor }) => {
 
 const mapStateToProps = state => ({
   colors: state.data.colors,
-  newColor: state.data.color,
+  Color: state.data.color,
   loding: state.data.loading,
-  // nameColor: state.data.colors
 });
 
 export default connect(mapStateToProps, { fetchColors })(Card);

@@ -1,0 +1,11 @@
+[
+    {
+        "Person": [
+            {
+                "id": 1,
+                "name": "Name",
+                "icon": "fa-duotone fa-user"
+            }
+        ]
+    }
+]
