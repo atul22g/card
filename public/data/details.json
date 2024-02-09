@@ -1,11 +1,38 @@
 [
     {
-        "Person": [
-            {
-                "id": 1,
-                "name": "Name",
-                "icon": "fa-duotone fa-user"
-            }
-        ]
+        "id": 1,
+        "heading": "Personal",
+        "name": "Name",
+        "icon": "fa-duotone fa-user fa-2xl"
+    },
+    {
+        "id": 2,
+        "heading": "Personal",
+        "name": "Job title",
+        "icon": "fa-duotone fa-briefcase fa-2xl"
+    },
+    {
+        "id": 3,
+        "heading": "Personal",
+        "name": "Department",
+        "icon": "fa-duotone fa-users fa-2xl"
+    },
+    {
+        "id": 4,
+        "heading": "Personal",
+        "name": "Company name",
+        "icon": "fa-duotone fa-building fa-2xl"
+    },
+    {
+        "id": 5,
+        "heading": "Personal",
+        "name": "Accreditations",
+        "icon": "fa-duotone fa-file-certificate fa-2xl"
+    },
+    {
+        "id": 6,
+        "heading": "Personal",
+        "name": "Headline",
+        "icon": "fa-duotone fa-heading fa-2xl"
     }
 ]

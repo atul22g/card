@@ -9,12 +9,11 @@ const Card = ({ loding, colors, fetchColors, Color }) => {
   useEffect(() => {
     fetchColors();
   }, [fetchColors]);
-  console.log(colors);
   return (
     // Card container
     <div className="w-[36.5vw] h-screen grid place-content-center max-md:hidden" style={{ backgroundColor: `rgba(${Color}, .25)` }}>
       {/* card */}
-      <div className="w-[28vw] rounded-lg mb-5 shadow-custom">
+      <div className="w-[28vw] rounded-lg mb-5 shadow-card">
         {/* Card Header */}
         <div className='w-[100%] min-h-[14vh] rounded-t-lg' style={{ backgroundColor: `rgb(${Color})` }}>
         </div>
@@ -23,7 +22,7 @@ const Card = ({ loding, colors, fetchColors, Color }) => {
         </div>
       </div>
       {/* colors */}
-      <ul className="inline-flex flex-wrap flex-row w-[25vw]">
+      <ul className="flex flex-wrap flex-row w-[25vw]">
         {!loding && colors.map(color => (
           <li className='mt-[.75rem] ml-[.875rem] relative' key={color.id}>
             <button

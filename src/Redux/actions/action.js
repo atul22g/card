@@ -45,11 +45,11 @@ export const FETCT_DETAILS_FAILURE = 'FETCT_DETAILS_FAILURE';
 
 export const fetchDetails = () => {
     return dispatch => {
-        dispatch(fetchColorsRequest());
+        dispatch(fetchDetailsRequest());
         fetch('data/details.json')
-            .then(response => response.json())
-            .then(details => dispatch(fetchColorsSuccess(details)))
-            .catch(error => dispatch(fetchColorsFailure(error)));
+            .then(data => data.json())
+            .then(details => dispatch(fetchDetailsSuccess(details)))
+            .catch(error => dispatch(fetchDetailsFailure(error)));
     };
 };
 

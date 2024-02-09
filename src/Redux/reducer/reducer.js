@@ -7,6 +7,7 @@ const initialState = {
     loading: false,
     color: '244, 90, 87',
     colors: [],
+    details: [],
     error: '',
 };
 
@@ -48,14 +49,14 @@ const dataReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                colors: action.payload,
+                details: action.payload,
                 error: '',
             };
         case FETCT_DETAILS_FAILURE:
             return {
                 ...state,
                 loading: false,
-                colors: [],
+                details: [],
                 error: action.payload,
             };
         default:
