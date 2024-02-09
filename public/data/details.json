@@ -34,5 +34,11 @@
         "heading": "Personal",
         "name": "Headline",
         "icon": "fa-duotone fa-heading fa-2xl"
+    },
+    {
+        "id": 7,
+        "heading": "General",
+        "name": "Email",
+        "icon": "fa-duotone fa-envelope fa-2xl"
     }
 ]
