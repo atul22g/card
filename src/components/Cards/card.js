@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { fetchColors, currentColor } from '../../Redux/actions/action';
 import { useDispatch } from 'react-redux';
 
-const Card = ({ loding, colors, fetchColors, Color }) => {
+const Card = ({ loding, colors, fetchColors, Color, cardData }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetchColors();
   }, [fetchColors]);
+  console.log(cardData);
   return (
     // Card container
     <div className="w-[36.5vw] h-screen grid place-content-center max-md:hidden" style={{ backgroundColor: `rgba(${Color}, .25)` }}>
@@ -45,6 +46,7 @@ const mapStateToProps = state => ({
   colors: state.colors.colors,
   Color: state.colors.color,
   loding: state.colors.loading,
+  cardData: state.cardData
 });
 
 export default connect(mapStateToProps, { fetchColors })(Card);

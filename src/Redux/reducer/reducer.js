@@ -1,9 +1,3 @@
-// colors
-import { FETCH_COLORS_REQUEST, FETCH_COLORS_SUCCESS, FETCH_COLORS_FAILURE, CURRENT_COLOR } from '../actions/action';
-// details
-import { FETCT_DETAILS_FAILURE, FETCT_DETAILS_SUCCESS, FETCT_DETAILS_REQUEST } from '../actions/action';
-// Modals
-import { OPEN_MODAL, CLOSE_MODAL } from '../actions/action';
 /*
 !Colors
 */
@@ -18,26 +12,26 @@ const colorState = {
 const colorReducer = (state = colorState, action) => {
     switch (action.type) {
         // Colors
-        case FETCH_COLORS_REQUEST:
+        case 'FETCH_COLORS_REQUEST':
             return {
                 ...state,
                 loading: true,
             };
-        case FETCH_COLORS_SUCCESS:
+        case 'FETCH_COLORS_SUCCESS':
             return {
                 ...state,
                 loading: false,
                 colors: action.payload,
                 error: '',
             };
-        case FETCH_COLORS_FAILURE:
+        case 'FETCH_COLORS_FAILURE':
             return {
                 ...state,
                 loading: false,
                 colors: [],
                 error: action.payload,
             };
-        case CURRENT_COLOR:
+        case 'CURRENT_COLOR':
             return {
                 ...state,
                 color: action.payload,
@@ -61,19 +55,19 @@ const detailState = {
 
 const detailReducer = (state = detailState, action) => {
     switch (action.type) {
-        case FETCT_DETAILS_REQUEST:
+        case 'FETCT_DETAILS_REQUEST':
             return {
                 ...state,
                 loading: true,
             };
-        case FETCT_DETAILS_SUCCESS:
+        case 'FETCT_DETAILS_SUCCESS':
             return {
                 ...state,
                 loading: false,
                 details: action.payload,
                 error: '',
             };
-        case FETCT_DETAILS_FAILURE:
+        case 'FETCT_DETAILS_FAILURE':
             return {
                 ...state,
                 loading: false,
@@ -118,4 +112,32 @@ const modalReducer = (state = ModalState, action) => {
     }
 };
 
-export { colorReducer, detailReducer, modalReducer };
+/*
+! Card Data
+*/
+
+const cardDataState = {
+    cardData: {},
+};
+
+const cardDataReducer = (state = cardDataState, action) => {
+    switch (action.type) {
+        case 'UPDATE_CARD_DATA':
+            return {
+                ...state,
+                cardData: {
+                    ...state.cardData,
+                    [action.payload.modal]: {
+                        ...state.cardData[action.payload.modal],
+                        [action.payload.field]: action.payload.value,
+                    }
+                },
+            };
+        default:
+            return state;
+    }
+};
+
+
+
+export { colorReducer, detailReducer, modalReducer, cardDataReducer };

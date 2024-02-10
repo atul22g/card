@@ -1,12 +1,12 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { closeModal } from '../../../Redux/actions/action';
+import { closeModal, updateCardData } from '../../../Redux/actions/action';
 import { Input } from "@material-tailwind/react";
 
 const Personal = () => {
     const modals = useSelector(state => state.modal);
+    const data = useSelector(state => state.cardData);
     const dispatch = useDispatch();
-
     return (
         <>
             {/* Name Modal */}
@@ -20,9 +20,9 @@ const Personal = () => {
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 {/*body*/}
                                 <div className="px-7 py-14 flex flex-col gap-5">
-                                    <Input className="w-[404px]" color="indigo" size="lg" label="First name" />
-                                    <Input className="w-[404px]" color="indigo" size="lg" label="Middle name" />
-                                    <Input className="w-[404px]" color="indigo" size="lg" label="Last name" />
+                                    <Input className="!w-[404px]" color="indigo" value={data?.cardData?.Name?.firstName || ''} size="lg" name='firstName' data-modal="Name" label="First name" onChange={(e) => dispatch(updateCardData(e.target.getAttribute('data-modal'), e.target.name, e.target.value))} />
+                                    <Input className="!w-[404px]" color="indigo" value={data?.cardData?.Name?.middleName || ''} size="lg" name='middleName' data-modal="Name" label="Middle name" onChange={(e) => dispatch(updateCardData(e.target.getAttribute('data-modal'), e.target.name, e.target.value))} />
+                                    <Input className="!w-[404px]" color="indigo" value={data?.cardData?.Name?.lastName || ''} size="lg" name='lastName' data-modal="Name" label="Last name" onChange={(e) => dispatch(updateCardData(e.target.getAttribute('data-modal'), e.target.name, e.target.value))} />
                                 </div>
                                 {/*footer*/}
                                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">

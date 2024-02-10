@@ -1,10 +1,6 @@
 /*
 !Colors
 */
-export const FETCH_COLORS_REQUEST = 'FETCH_COLORS_REQUEST';
-export const FETCH_COLORS_SUCCESS = 'FETCH_COLORS_SUCCESS';
-export const FETCH_COLORS_FAILURE = 'FETCH_COLORS_FAILURE';
-export const CURRENT_COLOR = 'CURRENT_COLOR';
 
 export const fetchColors = () => {
     return dispatch => {
@@ -17,31 +13,27 @@ export const fetchColors = () => {
 };
 
 export const fetchColorsRequest = () => ({
-    type: FETCH_COLORS_REQUEST,
+    type: 'FETCH_COLORS_REQUEST',
 });
 
 export const fetchColorsSuccess = colors => ({
-    type: FETCH_COLORS_SUCCESS,
+    type: 'FETCH_COLORS_SUCCESS',
     payload: colors,
 });
 
 export const fetchColorsFailure = error => ({
-    type: FETCH_COLORS_FAILURE,
+    type: 'FETCH_COLORS_FAILURE',
     payload: error,
 });
 
 export const currentColor = (Color) => ({
-    type: CURRENT_COLOR,
+    type: 'CURRENT_COLOR',
     payload: Color,
 });
 
 /*
 ! Card Details
 */
-
-export const FETCT_DETAILS_REQUEST = 'FETCT_DETAILS_REQUEST';
-export const FETCT_DETAILS_SUCCESS = 'FETCT_DETAILS_SUCCESS';
-export const FETCT_DETAILS_FAILURE = 'FETCT_DETAILS_FAILURE';
 
 export const fetchDetails = () => {
     return dispatch => {
@@ -54,25 +46,22 @@ export const fetchDetails = () => {
 };
 
 export const fetchDetailsRequest = () => ({
-    type: FETCT_DETAILS_REQUEST,
+    type: 'FETCT_DETAILS_REQUEST',
 });
 
 export const fetchDetailsSuccess = details => ({
-    type: FETCT_DETAILS_SUCCESS,
+    type: 'FETCT_DETAILS_SUCCESS',
     payload: details,
 });
 
 export const fetchDetailsFailure = error => ({
-    type: FETCT_DETAILS_FAILURE,
+    type: 'FETCT_DETAILS_FAILURE',
     payload: error,
 });
 
 /*
 ! Modals
 */
-
-export const OPEN_MODAL = 'OPEN_MODAL';
-export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 export const openModal = (modalId) => ({
     type: 'OPEN_MODAL',
@@ -84,3 +73,14 @@ export const closeModal = (modalId) => ({
     payload: modalId
 });
 
+
+/*
+! Card Data
+*/
+
+export const updateCardData = (modal, field, value) => {
+    return {
+        type: 'UPDATE_CARD_DATA',
+        payload: {modal, field, value }
+    };
+};
