@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './card'
 import CardText from './Details'
-import Modals from './Modals'
+import Personal from './Modals/Personal'
 
 export const Main = () => {
     return (
@@ -12,7 +12,7 @@ export const Main = () => {
         {/* Card Text */}
         <CardText/>
         {/*  */}
-        {/* <Modals/> */}
+        <Personal/>
         </div>
     )
 }

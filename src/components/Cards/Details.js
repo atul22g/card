@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux';
-import { fetchDetails } from '../../Redux/actions/action';
-// import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import { fetchDetails, openModal } from '../../Redux/actions/action';
 
-const Details = ({ details, fetchDetails, loader }) => {
-    // const dispatch = useDispatch();
-
+const Details = ({ details, fetchDetails, loader, openModal }) => {
+    const dispatch = useDispatch();
     useEffect(() => {
         fetchDetails();
     }, [fetchDetails]);
@@ -24,7 +22,7 @@ const Details = ({ details, fetchDetails, loader }) => {
             <ul className='mt-3 flex flex-row flex-wrap gap-6'>
                 {!loader && details.map(personal => (
                     personal.heading === "Personal" ? (
-                        <li className='w-fit rounded-lg bg-[#f9fafb] cursor-pointer hover:shadow-details' key={personal.id}>
+                        <li className='w-fit rounded-lg bg-[#f9fafb] cursor-pointer hover:shadow-details' onClick={() => dispatch(openModal(personal.openModal))} key={personal.id}>
                             <div className='flex flex-col justify-center items-center pt-[1.8rem] pb-2'>
                                 <i className={personal.icon}></i>
                                 <p className='font-normal text-[0.87em] mt-6 mx-3'>{personal.name}</p>
@@ -52,8 +50,8 @@ const Details = ({ details, fetchDetails, loader }) => {
 }
 
 const mapStateToProps = state => ({
-    details: state.data.details,
-    loader: state.data.loading,
+    details: state.details.details,
+    loader: state.details.loading,
 });
 
-export default connect(mapStateToProps, { fetchDetails })(Details);
+export default connect(mapStateToProps, { fetchDetails, openModal })(Details);

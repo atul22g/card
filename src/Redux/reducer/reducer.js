@@ -1,17 +1,21 @@
+// colors
+import { FETCH_COLORS_REQUEST, FETCH_COLORS_SUCCESS, FETCH_COLORS_FAILURE, CURRENT_COLOR } from '../actions/action';
+// details
+import { FETCT_DETAILS_FAILURE, FETCT_DETAILS_SUCCESS, FETCT_DETAILS_REQUEST } from '../actions/action';
+// Modals
+import { OPEN_MODAL, CLOSE_MODAL } from '../actions/action';
 /*
 !Colors
 */
-import { FETCH_COLORS_REQUEST, FETCH_COLORS_SUCCESS, FETCH_COLORS_FAILURE, CURRENT_COLOR, FETCT_DETAILS_FAILURE, FETCT_DETAILS_SUCCESS, FETCT_DETAILS_REQUEST } from '../actions/action';
 
-const initialState = {
+const colorState = {
     loading: false,
     color: '244, 90, 87',
     colors: [],
-    details: [],
     error: '',
 };
 
-const dataReducer = (state = initialState, action) => {
+const colorReducer = (state = colorState, action) => {
     switch (action.type) {
         // Colors
         case FETCH_COLORS_REQUEST:
@@ -39,7 +43,24 @@ const dataReducer = (state = initialState, action) => {
                 color: action.payload,
                 name: action.payload
             };
-        // Details
+        default:
+            return state;
+    }
+};
+
+/*
+! Card Details
+*/
+
+const detailState = {
+    loading: false,
+    details: [],
+    error: '',
+};
+
+
+const detailReducer = (state = detailState, action) => {
+    switch (action.type) {
         case FETCT_DETAILS_REQUEST:
             return {
                 ...state,
@@ -64,4 +85,37 @@ const dataReducer = (state = initialState, action) => {
     }
 };
 
-export default dataReducer;
+
+/*
+! Modals
+*/
+
+const ModalState = {
+    modals: {},
+};
+
+
+const modalReducer = (state = ModalState, action) => {
+    switch (action.type) {
+        case 'OPEN_MODAL':
+            return {
+                ...state,
+                modals: {
+                    ...state.modals,
+                    [action.payload]: true
+                }
+            };
+        case 'CLOSE_MODAL':
+            return {
+                ...state,
+                modals: {
+                    ...state.modals,
+                    [action.payload]: false
+                }
+            };
+        default:
+            return state;
+    }
+};
+
+export { colorReducer, detailReducer, modalReducer };

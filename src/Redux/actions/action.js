@@ -31,8 +31,8 @@ export const fetchColorsFailure = error => ({
 });
 
 export const currentColor = (Color) => ({
-        type: CURRENT_COLOR,
-        payload: Color,
+    type: CURRENT_COLOR,
+    payload: Color,
 });
 
 /*
@@ -66,3 +66,21 @@ export const fetchDetailsFailure = error => ({
     type: FETCT_DETAILS_FAILURE,
     payload: error,
 });
+
+/*
+! Modals
+*/
+
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
+
+export const openModal = (modalId) => ({
+    type: 'OPEN_MODAL',
+    payload: modalId
+});
+
+export const closeModal = (modalId) => ({
+    type: 'CLOSE_MODAL',
+    payload: modalId
+});
+

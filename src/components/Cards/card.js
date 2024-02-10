@@ -18,7 +18,7 @@ const Card = ({ loding, colors, fetchColors, Color }) => {
         <div className='w-[100%] min-h-[14vh] rounded-t-lg' style={{ backgroundColor: `rgb(${Color})` }}>
         </div>
         {/* Card Body */}
-        <div className='w-[100%] min-h-[13vh] rounded-b-lg bg-white'>
+        <div className='w-[100%] min-h-[3.1vh] rounded-b-lg bg-white'>
         </div>
       </div>
       {/* colors */}
@@ -42,9 +42,9 @@ const Card = ({ loding, colors, fetchColors, Color }) => {
 };
 
 const mapStateToProps = state => ({
-  colors: state.data.colors,
-  Color: state.data.color,
-  loding: state.data.loading,
+  colors: state.colors.colors,
+  Color: state.colors.color,
+  loding: state.colors.loading,
 });
 
 export default connect(mapStateToProps, { fetchColors })(Card);

@@ -3,30 +3,35 @@
         "id": 1,
         "heading": "Personal",
         "name": "Name",
+        "openModal": "name",
         "icon": "fa-duotone fa-user fa-2xl"
     },
     {
         "id": 2,
         "heading": "Personal",
         "name": "Job title",
+        "openModal": "jobTitle",
         "icon": "fa-duotone fa-briefcase fa-2xl"
     },
     {
         "id": 3,
         "heading": "Personal",
         "name": "Department",
+        "openModal": "department",
         "icon": "fa-duotone fa-users fa-2xl"
     },
     {
         "id": 4,
         "heading": "Personal",
         "name": "Company name",
+        "openModal": "company",
         "icon": "fa-duotone fa-building fa-2xl"
     },
     {
         "id": 5,
         "heading": "Personal",
         "name": "Accreditations",
+        "openModal": "accreditations",
         "icon": "fa-duotone fa-file-certificate fa-2xl"
     },
     {
