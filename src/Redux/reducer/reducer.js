@@ -86,6 +86,7 @@ const detailReducer = (state = detailState, action) => {
 
 const ModalState = {
     modals: {},
+    isOpen: null
 };
 
 
@@ -97,15 +98,17 @@ const modalReducer = (state = ModalState, action) => {
                 modals: {
                     ...state.modals,
                     [action.payload]: true
-                }
+                },
+                isOpen: [action.payload][0]
             };
         case 'CLOSE_MODAL':
             return {
                 ...state,
                 modals: {
                     ...state.modals,
-                    [action.payload]: false
-                }
+                    [action.payload]: false,
+                },
+                isOpen: null
             };
         default:
             return state;

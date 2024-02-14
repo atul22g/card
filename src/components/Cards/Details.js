@@ -33,7 +33,7 @@ const Details = ({ details, fetchDetails, loader, openModal }) => {
             </ul>
             {/* General */}
             <h4 className='text-[0.9rem] font-medium mt-5'>General</h4>
-            <ul className='mt-3 flex flex-row flex-wrap gap-6'>
+            {/* <ul className='mt-3 flex flex-row flex-wrap gap-6'>
                 {!loader && details.map(General => (
                     General.heading === "General" ? (
                         <li className='w-fit rounded-lg bg-[#f9fafb] cursor-pointer hover:shadow-details' key={General.id}>
@@ -44,7 +44,7 @@ const Details = ({ details, fetchDetails, loader, openModal }) => {
                         </li>
                     ) : null
                 ))}
-            </ul>
+            </ul> */}
         </div>
     )
 }

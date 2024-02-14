@@ -2,7 +2,7 @@
     {
         "id": 1,
         "heading": "Personal",
-        "name": "Name",
+        "name": "name",
         "openModal": "name",
         "icon": "fa-duotone fa-user fa-2xl"
     },

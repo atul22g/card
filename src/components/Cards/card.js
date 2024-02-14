@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchColors, currentColor } from '../../Redux/actions/action';
 import { useDispatch } from 'react-redux';
+import Personal from './content/Personal';
 
-const Card = ({ loding, colors, fetchColors, Color, cardData }) => {
+const Card = ({ loding, colors, fetchColors, Color }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetchColors();
   }, [fetchColors]);
-  console.log(cardData);
   return (
     // Card container
     <div className="w-[36.5vw] h-screen grid place-content-center max-md:hidden" style={{ backgroundColor: `rgba(${Color}, .25)` }}>
@@ -19,7 +19,8 @@ const Card = ({ loding, colors, fetchColors, Color, cardData }) => {
         <div className='w-[100%] min-h-[14vh] rounded-t-lg' style={{ backgroundColor: `rgb(${Color})` }}>
         </div>
         {/* Card Body */}
-        <div className='w-[100%] min-h-[3.1vh] rounded-b-lg bg-white'>
+        <div className='w-[100%] min-h-[3.1vh] rounded-b-lg bg-white px-4 py-3 pt-6 pb-4'>
+        <Personal/>
         </div>
       </div>
       {/* colors */}
@@ -45,8 +46,7 @@ const Card = ({ loding, colors, fetchColors, Color, cardData }) => {
 const mapStateToProps = state => ({
   colors: state.colors.colors,
   Color: state.colors.color,
-  loding: state.colors.loading,
-  cardData: state.cardData
+  loding: state.colors.loading
 });
 
 export default connect(mapStateToProps, { fetchColors })(Card);
