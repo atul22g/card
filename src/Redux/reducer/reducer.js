@@ -84,46 +84,15 @@ const detailReducer = (state = detailState, action) => {
 ! Modals
 */
 
-const ModalState = {
+const dataState = {
+    savecardData: {},
+    cardData: {},
     modals: {},
     isOpen: null
 };
 
 
-const modalReducer = (state = ModalState, action) => {
-    switch (action.type) {
-        case 'OPEN_MODAL':
-            return {
-                ...state,
-                modals: {
-                    ...state.modals,
-                    [action.payload]: true
-                },
-                isOpen: [action.payload][0]
-            };
-        case 'CLOSE_MODAL':
-            return {
-                ...state,
-                modals: {
-                    ...state.modals,
-                    [action.payload]: false,
-                },
-                isOpen: null
-            };
-        default:
-            return state;
-    }
-};
-
-/*
-! Card Data
-*/
-
-const cardDataState = {
-    cardData: {},
-};
-
-const cardDataReducer = (state = cardDataState, action) => {
+const dataReducer = (state = dataState, action) => {
     switch (action.type) {
         case 'UPDATE_CARD_DATA':
             return {
@@ -136,11 +105,45 @@ const cardDataReducer = (state = cardDataState, action) => {
                     }
                 },
             };
+        case 'OPEN_MODAL':
+            return {
+                ...state,
+                modals: {
+                    ...state.modals,
+                    [action.payload]: true
+                },
+                isOpen: [action.payload][0]
+            };
+        case 'CLOSE_MODAL':
+            return {
+                ...state,
+                cardData: {
+                    ...state.cardData,
+                    [action.payload]: {
+                        ...state.savecardData[action.payload],
+                    }
+                },
+                modals: {
+                    ...state.modals,
+                    [action.payload]: false,
+                },
+                isOpen: null
+            };
+        case 'SAVE_DATA':
+            return {
+                ...state,
+                savecardData: {
+                    ...state.cardData,
+                },
+                modals: {
+                    ...state.modals,
+                    [action.payload]: false,
+                },
+                isOpen: null
+            };
         default:
             return state;
     }
 };
 
-
-
-export { colorReducer, detailReducer, modalReducer, cardDataReducer };
+export { colorReducer, detailReducer, dataReducer };

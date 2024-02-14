@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { closeModal } from '../../../Redux/actions/action';
+import { closeModal, saveData } from '../../../Redux/actions/action';
 import * as personal from './content/personal';
 
 const Modal = () => {
-    const modals = useSelector(state => state.modal.modals);
-    const isOpen = useSelector(state => state.modal.isOpen);
+    const modals = useSelector(state => state.data.modals);
+    const isOpen = useSelector(state => state.data.isOpen);
     const dispatch = useDispatch();
     return (
         <>
@@ -34,7 +34,7 @@ const Modal = () => {
                                     <button
                                         className="text-[#f45a57] border-[1px]  border-[#f45a57] px-4 py-2 rounded-xl  shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150  hover:bg-[#f45a57] hover:text-white"
                                         type="button"
-                                        onClick={() => dispatch(closeModal(isOpen))}
+                                        onClick={() => dispatch(saveData(isOpen))}
                                     >Save </button>
                                 </div>
                             </div>

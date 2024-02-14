@@ -25,8 +25,8 @@ const Personal = ({ data, isOpen, color }) => {
 }
 
 const mapStateToProps = state => ({
-    data: state.cardData.cardData,
-    isOpen: state.modal.isOpen,
+    data: state.data.cardData,
+    isOpen: state.data.isOpen,
     color: state.colors.color
 });
 

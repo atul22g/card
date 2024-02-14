@@ -73,6 +73,11 @@ export const closeModal = (modalId) => ({
     payload: modalId
 });
 
+export const saveData = (modalId) => ({
+    type: 'SAVE_DATA',
+    payload: modalId
+});
+
 
 /*
 ! Card Data

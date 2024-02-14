@@ -6,7 +6,8 @@ import { updateCardData } from '../../../../Redux/actions/action';
 
 export const Name = () => {
     const dispatch = useDispatch();
-    const data = useSelector(state => state.cardData);
+    const data = useSelector(state => state.data);
+    console.log(data);
     return (
         <>
             <Input className="!w-[404px]" color="indigo" value={data?.cardData?.name?.firstName || ''} size="lg" name='firstName' data-modal="name" label="First name" onChange={(e) => dispatch(updateCardData(e.target.getAttribute('data-modal'), e.target.name, e.target.value))} />
