@@ -1,28 +1,60 @@
+:root {
+    --theme-color: rgb(244, 90, 87);
+    --light-theme-color: rgba(244, 90, 87);
+}
+
 /* Tailwind css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* comman */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.themeLgbg{
+    background-color: var(--light-theme-color);
 }
 
-.card_personal_comman{
+.themeBg{
+    background-color: var(--theme-color);
+}
+
+.themeOutLine{
+    outline-color: var(--theme-color);
+}
+
+/* Card Data */
+
+.card_personal_comman {
     color: #acb9be;
 }
 
-.card_personal{
+.card_personal {
     border-radius: 6px;
     padding: 1px 8px;
     font-size: 1.5em;
     font-weight: 700;
     cursor: pointer;
     overflow-wrap: break-word;
+    outline-width: 0px;
+    transition: all 2s;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.card_personal:hover{
+.card_personal_active {
+    outline-width: 1px;
+}
+
+.card_personal:hover::after {
+    font-family: "Font Awesome 6 Pro";
+    content: "\f044";
+    color: var(--theme-color);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.card_personal:hover {
     outline-width: 1px !important;
 }

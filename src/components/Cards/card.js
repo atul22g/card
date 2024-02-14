@@ -9,14 +9,16 @@ const Card = ({ loding, colors, fetchColors, Color }) => {
 
   useEffect(() => {
     fetchColors();
-  }, [fetchColors]);
+    document.documentElement.style.setProperty('--theme-color', `rgb(${Color})`);
+    document.documentElement.style.setProperty('--light-theme-color', `rgba(${Color}, .25)`);
+  }, [Color, fetchColors]);
   return (
     // Card container
-    <div className="w-[36.5vw] h-screen grid place-content-center max-md:hidden" style={{ backgroundColor: `rgba(${Color}, .25)` }}>
+    <div className="w-[36.5vw] h-screen grid place-content-center max-md:hidden themeLgbg">
       {/* card */}
       <div className="w-[28vw] rounded-lg mb-5 shadow-card">
         {/* Card Header */}
-        <div className='w-[100%] min-h-[14vh] rounded-t-lg' style={{ backgroundColor: `rgb(${Color})` }}>
+        <div className='w-[100%] min-h-[14vh] rounded-t-lg themeBg'>
         </div>
         {/* Card Body */}
         <div className='w-[100%] min-h-[3.1vh] rounded-b-lg bg-white px-4 py-3 pt-6 pb-4'>
