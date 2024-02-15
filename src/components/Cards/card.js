@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchColors, currentColor } from '../../Redux/actions/action';
+import { fetchColors, setCurrentColor } from '../../Redux-store/slices/colors';
 import { useDispatch } from 'react-redux';
 import Personal from './content/Personal';
 
@@ -30,7 +30,7 @@ const Card = ({ loding, colors, fetchColors, Color }) => {
         {!loding && colors.map(color => (
           <li className='mt-[.75rem] ml-[.875rem] relative' key={color.id}>
             <button
-              onClick={() => dispatch(currentColor(color.color))}
+              onClick={() => dispatch(setCurrentColor(color.color))}
               className={`h-[1.5rem] w-[1.5rem] rounded-md outline-offset-[3px] outline-1 outline`}
               style={{
                 backgroundColor: `rgb(${color.color})`,

@@ -1,6 +1,13 @@
 :root {
     --theme-color: rgb(244, 90, 87);
-    --light-theme-color: rgba(244, 90, 87);
+    --light-theme-color: rgba(244, 90, 87, .25);
+    --dim-theme-color: rgba(244, 90, 87, 0.8);
+    --btn-disable-color: #b5b7b8;
+    --box-disable-color: #acb9be;
+    --box-color: #f9fafb;
+    --dark-box-color: #e2e3e3;
+    --white-color: #fff;
+    --black-color: #000;
 }
 
 /* Tailwind css */
@@ -9,22 +16,22 @@
 @tailwind utilities;
 
 /* comman */
-.themeLgbg{
+.themeLgbg {
     background-color: var(--light-theme-color);
 }
 
-.themeBg{
+.themeBg {
     background-color: var(--theme-color);
 }
 
-.themeOutLine{
+.themeOutLine {
     outline-color: var(--theme-color);
 }
 
 /* Card Data */
 
 .card_personal_comman {
-    color: #acb9be;
+    color: var(--btn-disable-color);
 }
 
 .card_personal {
@@ -57,4 +64,77 @@
 
 .card_personal:hover {
     outline-width: 1px !important;
+}
+
+/* Details */
+
+.personal>.isActive {
+    background-color: var(--box-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .15), 0 1px 3px rgba(0, 0, 0, .1);
+    transition: all .5s;
+}
+
+.personal>.isActive:active {
+    background-color: var(--dark-box-color);
+}
+
+.personal>.isDesable {
+    border-radius: 0.5rem;
+    -webkit-user-select: none;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.personal>.isDesable i, .personal>.isDesable p{
+    color: var(--box-disable-color);
+}
+
+/* Modal Save Btn */
+.modalBtn>.isDisable {
+    color: var(--btn-disable-color);
+    border: 1px solid var(--btn-disable-color);
+    cursor: not-allowed;
+    border-radius: 0.75rem;
+}
+
+.modalBtn>.isActive {
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
+    border-radius: 0.75rem;
+}
+
+.modalBtn>.isActive:hover {
+    background-color: var(--theme-color);
+    color: var(--white-color);
+}
+
+/*  */
+.modal_delete_btn {
+    padding: 0.7rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+.modal_delete_btn:hover {
+    background-color: var(--box-color);
+}
+
+.cancelBtn {
+    border-radius: 0.5rem;
+    border: 2px solid var(--dark-box-color);
+    color: var(--theme-color);
+}
+.cancelBtn:hover {
+    border: 2px solid var(--black-color);
+}
+.removeBtn{
+    border-radius: 0.5rem;
+    background-color: var(--theme-color);
+    color: var(--white-color);
+}
+
+.removeBtn:hover{
+    background-color: var(--dim-theme-color);
 }

@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { updateCardData } from '../../../Redux/actions/action';
-import { openModal } from '../../../Redux/actions/action';
-
+import { updateCardData } from '../../../Redux-store/slices/dataSlice';
+import { openModal } from '../../../Redux-store/slices/dataSlice';
 
 const Personal = ({ data, isOpen }) => {
     const dispatch = useDispatch();
@@ -11,7 +10,7 @@ const Personal = ({ data, isOpen }) => {
             {/* Name */}
             {/* Default */}
             {isOpen === 'name' && !data?.name?.firstName && !data?.name?.middleName && !data?.name?.lastName ?
-                <div className={`card_personal card_personal_comman outline-offset-[1px] outline ${isOpen === 'name' ? 'card_personal_active' : ''}`}>Name</div>
+                <div className={`card_personal card_personal_comman themeOutLine outline-offset-[1px] outline ${isOpen === 'name' ? 'card_personal_active' : ''}`}>Name</div>
                 : null}
             {/* Name */}
             {data.name && (data?.name?.firstName || data?.name?.middleName || data?.name?.lastName) ?

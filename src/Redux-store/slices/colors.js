@@ -1,21 +1,53 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const fetchColors = () => {
-    return dispatch => {
-        dispatch(fetchColorsRequest());
-        fetch('data/colors.json')
-            .then(response => response.json())
-            .then(colors => dispatch(fetchColorsSuccess(colors)))
-            .catch(error => dispatch(fetchColorsFailure(error)));
-    };
-};
-
-const colorsSlice = createSlice({
-    name: "Colors",
-    initialState: [],
+// Fetch Data
+export const fetchColors = createAsyncThunk(
+    'colors/fetchColors',
+    async () => {
+        try {
+            const response = await fetch('data/colors.json');
+            if (!response.ok) {
+                throw new Error('Failed to fetch colors');
+            }
+            const colors = await response.json();
+            return colors;
+        } catch (error) {
+            throw error;
+        }
+    }
+);
+// Colors Slice
+const colorSlice = createSlice({
+    name: 'colors',
+    initialState: {
+        loading: false,
+        color: '244, 90, 87',
+        colors: [],
+        error: '',
+    },
     reducers: {
-
+        setCurrentColor(state, action) {
+            state.color = action.payload;
+            state.name = action.payload;
+        },
+    },
+    extraReducers: builder => {
+        builder
+            .addCase(fetchColors.pending, state => {
+                state.loading = true;
+            })
+            .addCase(fetchColors.fulfilled, (state, action) => {
+                state.loading = false;
+                state.colors = action.payload;
+                state.error = '';
+            })
+            .addCase(fetchColors.rejected, (state, action) => {
+                state.loading = false;
+                state.colors = [];
+                state.error = action.error.message;
+            });
     },
 });
 
-export default colorsSlice;
+export const { setCurrentColor } = colorSlice.actions;
+export default colorSlice.reducer;
