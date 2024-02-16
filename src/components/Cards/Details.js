@@ -24,7 +24,7 @@ const Details = ({ details, fetchDetails, loader, openModal, data }) => {
                 {!loader && details.map(personal => (
                     personal.heading === "Personal" ? (
                         
-                        <li className={`${data.cardData[personal.name]?.saveData === 'true' ? 'isDesable' : 'isActive'} w-fit`} onClick={data.cardData[personal.name]?.saveData === 'true' ? null : () => dispatch(openModal(personal.openModal))} key={personal.id}>
+                        <li className={`${data.cardData[personal.openModal]?.saveData === 'true' ? 'isDesable' : 'isActive'} w-fit`} onClick={data.cardData[personal.openModal]?.saveData === 'true' ? null : () => dispatch(openModal(personal.openModal))} key={personal.id}>
                             <div className='flex flex-col justify-center items-center pt-[1.8rem] pb-2'>
                                 <i className={personal.icon}></i>
                                 <p className='font-normal text-[0.87em] mt-6 mx-3'>{personal.name}</p>

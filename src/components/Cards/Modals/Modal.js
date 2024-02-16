@@ -58,7 +58,11 @@ const Modal = () => {
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 {/*body*/}
                                 <div className="px-7 py-14 flex flex-col gap-5">
-                                    {modals?.name && <personal.Name />}
+                                    {modals.name && <personal.Name />}
+                                    {modals.jobTitle && <personal.JobTitle />}
+                                    {modals.department && <personal.Department />}
+                                    {modals.company && <personal.Company />}
+                                    {modals.headline && <personal.Headline />}
                                 </div>
                                 {/*footer*/}
                                 <div className="flex border-t-2 border-gray-300 items-center align-middle justify-between mx-2 p-6 border-solid border-blueGray-200 rounded-b">

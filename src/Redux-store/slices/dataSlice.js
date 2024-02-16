@@ -14,7 +14,7 @@ const dataSlice = createSlice({
     reducers: {
         updateCardData(state, action) {
             const { modal, field, value } = action.payload;
-            
+
             const updatedCardData = {
                 ...state.cardData[modal],
                 [field]: value,
@@ -37,34 +37,41 @@ const dataSlice = createSlice({
         },
         closeModal(state, action) {
             const modalName = action.payload;
-            state.cardData[modalName] = { ...state.savecardData[modalName] };
+            state.cardData[modalName] = {
+                ...state.savecardData[modalName]
+            };
             state.modals[modalName] = false;
             state.isOpen = null;
         },
         saveData(state, action) {
             const modalName = action.payload;
-            state.savecardData = { ...state.cardData };
+            state.savecardData[modalName] = {
+                ...state.cardData[modalName],
+                saveData: 'true'
+            };
             state.modals[modalName] = false;
             state.isOpen = null;
             state.cardData[modalName] = {
                 ...state.cardData[modalName],
-                saveData: 'true'
+                    saveData: 'true'
             };
         },
         openDeleteModal(state, action) {
-            const {modal,itstrue} = action.payload;
+            const { modal, itstrue } = action.payload;
             let itsDeleteVal = {
                 [modal]: itstrue
             }
             state.isDelete = itsDeleteVal;
         },
         removeField(state, action) {
-            const {modal,itstrue} = action.payload;
+            const { modal, itstrue } = action.payload;
             let itsDeleteVal = {
                 [modal]: itstrue
             }
             state.cardData[modal] = undefined;
+            state.savecardData[modal] = undefined;
             state.isDelete = itsDeleteVal;
+            state.modals[modal] = false
             state.isOpen = null;
         },
     },

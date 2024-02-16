@@ -30,18 +30,12 @@
     {
         "id": 5,
         "heading": "Personal",
-        "name": "Accreditations",
-        "openModal": "accreditations",
-        "icon": "fa-duotone fa-file-certificate fa-2xl"
-    },
-    {
-        "id": 6,
-        "heading": "Personal",
         "name": "Headline",
+        "openModal": "headline",
         "icon": "fa-duotone fa-heading fa-2xl"
     },
     {
-        "id": 7,
+        "id": 6,
         "heading": "General",
         "name": "Email",
         "icon": "fa-duotone fa-envelope fa-2xl"

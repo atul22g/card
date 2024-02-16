@@ -28,6 +28,29 @@
     outline-color: var(--theme-color);
 }
 
+/* Card Header */
+.cardHeader{
+    position: relative;
+}
+.cardHeader:hover:after{
+    font-family: "Font Awesome 6 Pro";
+    content: '\f303';
+    color: var(--white-color);
+    border-radius: 50%;
+    margin: 6px;
+    background-color: rgb(0 0 0 / 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8em;
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
 /* Card Data */
 
 .card_personal_comman {
@@ -37,8 +60,6 @@
 .card_personal {
     border-radius: 6px;
     padding: 1px 8px;
-    font-size: 1.5em;
-    font-weight: 700;
     cursor: pointer;
     overflow-wrap: break-word;
     outline-width: 0px;
