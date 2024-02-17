@@ -1,7 +1,6 @@
 :root {
     --theme-color: rgb(244, 90, 87);
     --light-theme-color: rgba(244, 90, 87, .25);
-    --dim-theme-color: rgba(244, 90, 87, 0.8);
     --btn-disable-color: #b5b7b8;
     --box-disable-color: #acb9be;
     --box-color: #f9fafb;
@@ -29,10 +28,12 @@
 }
 
 /* Card Header */
-.cardHeader{
+.cardHeader {
     position: relative;
+    cursor: pointer;
 }
-.cardHeader:hover:after{
+
+.cardHeader:hover:after {
     font-family: "Font Awesome 6 Pro";
     content: '\f303';
     color: var(--white-color);
@@ -51,6 +52,10 @@
     font-weight: 600;
 }
 
+.cardHeader:hover {
+    filter: brightness(90%)
+}
+
 /* Card Data */
 
 .card_personal_comman {
@@ -63,9 +68,10 @@
     cursor: pointer;
     overflow-wrap: break-word;
     outline-width: 0px;
-    transition: all 2s;
     display: flex;
     flex-direction: row;
+    transition: all 4s ease-in-out;
+    transition-timing-function: linear;
     justify-content: space-between;
     align-items: center;
 }
@@ -89,7 +95,7 @@
 
 /* Details */
 
-.personal>.isActive {
+.detail_box>.isActive {
     background-color: var(--box-color);
     border-radius: 0.5rem;
     cursor: pointer;
@@ -97,18 +103,19 @@
     transition: all .5s;
 }
 
-.personal>.isActive:active {
+.detail_box>.isActive:active {
     background-color: var(--dark-box-color);
 }
 
-.personal>.isDesable {
+.detail_box>.isDesable {
     border-radius: 0.5rem;
     -webkit-user-select: none;
     cursor: not-allowed;
     user-select: none;
 }
 
-.personal>.isDesable i, .personal>.isDesable p{
+.detail_box>.isDesable i,
+.detail_box>.isDesable p {
     color: var(--box-disable-color);
 }
 
@@ -147,15 +154,17 @@
     border: 2px solid var(--dark-box-color);
     color: var(--theme-color);
 }
+
 .cancelBtn:hover {
     border: 2px solid var(--black-color);
 }
-.removeBtn{
+
+.removeBtn {
     border-radius: 0.5rem;
     background-color: var(--theme-color);
     color: var(--white-color);
 }
 
-.removeBtn:hover{
+.removeBtn:hover {
     background-color: var(--dim-theme-color);
 }

@@ -38,6 +38,40 @@
         "id": 6,
         "heading": "General",
         "name": "Email",
+        "openModal": "social",
+        "socialName": "email",
         "icon": "fa-duotone fa-envelope fa-2xl"
+    },
+    {
+        "id": 7,
+        "heading": "General",
+        "name": "Phone",
+        "openModal": "social",
+        "socialName": "phone",
+        "icon": "fa-duotone fa-phone fa-2xl"
+    },
+    {
+        "id": 8,
+        "heading": "General",
+        "name": "Compan URL",
+        "openModal": "social",
+        "socialName": "company_url",
+        "icon": "fa-duotone fa-browser fa-2xl"
+    },
+    {
+        "id": 9,
+        "heading": "General",
+        "name": "Link",
+        "openModal": "social",
+        "socialName": "link",
+        "icon": "fa-duotone fa-link fa-2xl"
+    },
+    {
+        "id": 10,
+        "heading": "General",
+        "name": "Address",
+        "openModal": "social",
+        "socialName": "address",
+        "icon": "fa-duotone fa-location-dot fa-2xl"
     }
 ]

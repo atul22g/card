@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchColors, setCurrentColor } from '../../Redux-store/slices/colors';
 import { useDispatch } from 'react-redux';
 import Personal from './content/Personal';
+import Social from './content/Social';
 
 const Card = ({ loding, colors, fetchColors, Color }) => {
   const dispatch = useDispatch();
@@ -19,10 +20,12 @@ const Card = ({ loding, colors, fetchColors, Color }) => {
       <div className="w-[28vw] rounded-lg mb-5 shadow-card">
         {/* Card Header */}
         <div className='w-[100%] min-h-[14vh] rounded-t-lg themeBg cardHeader'>
+        <div className='cardHeaderInner'></div>
         </div>
         {/* Card Body */}
         <div className='w-[100%] min-h-[3.1vh] rounded-b-lg flex flex-col gap-2 bg-white px-4 py-3 pt-6 pb-4'>
         <Personal/>
+        <Social/>
         </div>
       </div>
       {/* colors */}

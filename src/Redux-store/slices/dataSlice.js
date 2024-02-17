@@ -6,6 +6,7 @@ const initialState = {
     modals: {},
     isDelete: {},
     isOpen: null,
+    isSocialName: null,
 };
 
 const dataSlice = createSlice({
@@ -14,7 +15,6 @@ const dataSlice = createSlice({
     reducers: {
         updateCardData(state, action) {
             const { modal, field, value } = action.payload;
-
             const updatedCardData = {
                 ...state.cardData[modal],
                 [field]: value,
@@ -31,9 +31,10 @@ const dataSlice = createSlice({
             }
         },
         openModal(state, action) {
-            const modalName = action.payload;
-            state.modals[modalName] = true;
-            state.isOpen = modalName;
+            const {openModal,name} = action.payload;
+            state.modals[openModal] = true;
+            state.isOpen = openModal;
+            state.isSocialName = name;
         },
         closeModal(state, action) {
             const modalName = action.payload;

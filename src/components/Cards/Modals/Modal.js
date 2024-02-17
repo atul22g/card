@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModal, saveData, openDeleteModal, removeField } from '../../../Redux-store/slices/dataSlice';
 import * as personal from './content/personal';
+import * as generial from './content/generial';
 
 const Modal = () => {
     const data = useSelector(state => state.data);
@@ -47,7 +48,7 @@ const Modal = () => {
                 </>)
             }
 
-            {/* Name Modal */}
+            {/* Modal */}
             {(isOpen && !isDelete[isOpen]) && (
                 <>
                     <div
@@ -58,11 +59,14 @@ const Modal = () => {
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 {/*body*/}
                                 <div className="px-7 py-14 flex flex-col gap-5">
+                                    {/* Personal */}
                                     {modals.name && <personal.Name />}
                                     {modals.jobTitle && <personal.JobTitle />}
                                     {modals.department && <personal.Department />}
                                     {modals.company && <personal.Company />}
                                     {modals.headline && <personal.Headline />}
+                                    {/* Generial */}
+                                    {modals.social && <generial.Social  />}
                                 </div>
                                 {/*footer*/}
                                 <div className="flex border-t-2 border-gray-300 items-center align-middle justify-between mx-2 p-6 border-solid border-blueGray-200 rounded-b">
