@@ -66,7 +66,7 @@ const Modal = () => {
                                     {modals.company && <personal.Company />}
                                     {modals.headline && <personal.Headline />}
                                     {/* Generial */}
-                                    {modals.social && <generial.Social  />}
+                                    {modals.social && <generial.Social />}
                                 </div>
                                 {/*footer*/}
                                 <div className="flex border-t-2 border-gray-300 items-center align-middle justify-between mx-2 p-6 border-solid border-blueGray-200 rounded-b">

@@ -6,7 +6,6 @@ const initialState = {
     modals: {},
     isDelete: {},
     isOpen: null,
-    isSocialName: null,
 };
 
 const dataSlice = createSlice({
@@ -31,18 +30,20 @@ const dataSlice = createSlice({
             }
         },
         openModal(state, action) {
-            const {openModal,name} = action.payload;
+            const { openModal, name } = action.payload;
             state.modals[openModal] = true;
-            state.isOpen = openModal;
-            state.isSocialName = name;
+            state.isOpen = (openModal === 'social' ? name : openModal);
         },
         closeModal(state, action) {
-            const modalName = action.payload;
-            state.cardData[modalName] = {
-                ...state.savecardData[modalName]
-            };
-            state.modals[modalName] = false;
-            state.isOpen = null;
+            const openModal = action.payload;
+            state.modals[openModal] = false;
+            state.modals['social'] = false;
+            state.isOpen = undefined;
+            if (openModal != 'social') {
+                state.cardData[openModal] = {
+                    ...state.savecardData[openModal]
+                };
+            }
         },
         saveData(state, action) {
             const modalName = action.payload;
@@ -54,7 +55,7 @@ const dataSlice = createSlice({
             state.isOpen = null;
             state.cardData[modalName] = {
                 ...state.cardData[modalName],
-                    saveData: 'true'
+                saveData: 'true'
             };
         },
         openDeleteModal(state, action) {
