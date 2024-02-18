@@ -13,10 +13,11 @@ const dataSlice = createSlice({
     initialState,
     reducers: {
         updateCardData(state, action) {
-            const { modal, field, value } = action.payload;
+            const { modal, field, value, icon } = action.payload;
             const updatedCardData = {
                 ...state.cardData[modal],
                 [field]: value,
+                icon
             };
 
             // Check if all fields are empty
@@ -39,7 +40,7 @@ const dataSlice = createSlice({
             state.modals[openModal] = false;
             state.modals['social'] = false;
             state.isOpen = undefined;
-            if (openModal != 'social') {
+            if (openModal !== 'social') {
                 state.cardData[openModal] = {
                     ...state.savecardData[openModal]
                 };

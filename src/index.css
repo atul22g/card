@@ -96,6 +96,16 @@
 
 /* Details */
 
+.card_social .icon_con {
+    background-color: var(--theme-color);
+    border-radius: 50%;
+}
+
+.card_social .text_con span {
+    font-size: 0.69em;
+    font-weight: 700;
+}
+
 .detail_box>.isActive {
     background-color: var(--box-color);
     border-radius: 0.5rem;

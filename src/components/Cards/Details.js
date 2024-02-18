@@ -23,9 +23,9 @@ const Details = ({ details, fetchDetails, loader, openModal, data }) => {
             <ul className='mt-3 flex flex-row detail_box flex-wrap gap-6'>
                 {!loader && details.map(personal => (
                     personal.heading === "Personal" ? (
-                        <li className={`${data.cardData[personal.openModal]?.saveData === 'true' ? 'isDesable' : 'isActive'} w-fit`} onClick={data.cardData[personal.openModal]?.saveData === 'true' ? null : () => dispatch(openModal({openModal:personal.openModal}))} key={personal.id}>
+                        <li className={`${data.cardData[personal.openModal]?.saveData === 'true' ? 'isDesable' : 'isActive'} w-fit`} onClick={data.cardData[personal.openModal]?.saveData === 'true' ? null : () => dispatch(openModal({ openModal: personal.openModal }))} key={personal.id}>
                             <div className='flex flex-col justify-center items-center pt-[1.8rem] pb-2'>
-                                <i className={personal.icon}></i>
+                                <i className={`${personal.icon} fa-2xl`}></i>
                                 <p className='font-normal text-[0.87em] mt-6 mx-3'>{personal.name}</p>
                             </div>
                         </li>
@@ -37,9 +37,9 @@ const Details = ({ details, fetchDetails, loader, openModal, data }) => {
             <ul className='mt-3 flex flex-row detail_box flex-wrap gap-6'>
                 {!loader && details.map(General => (
                     General.heading === "General" ? (
-                        <li className={`${data.cardData[General.openModal]?.saveData === 'true' ? 'isDesable' : 'isActive'} w-fit`} onClick={() => dispatch(openModal({openModal:General.openModal, name:General.socialName}))} key={General.id}>
+                        <li className={`${data.cardData[General.socialName]?.saveData === 'true' ? 'isDesable' : 'isActive'} w-fit`} onClick={data.cardData[General.socialName]?.saveData === 'true' ? null : () => dispatch(openModal({ openModal: General.openModal, name: General.socialName }))} key={General.id}>
                             <div className='flex flex-col justify-center items-center pt-[1.8rem] pb-2'>
-                                <i className={General.icon}></i>
+                                <i className={`${General.icon} fa-2xl`}></i>
                                 <p className='font-normal text-[0.87em] mt-6 mx-3'>{General.name}</p>
                             </div>
                         </li>

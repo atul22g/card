@@ -4,35 +4,35 @@
         "heading": "Personal",
         "name": "name",
         "openModal": "name",
-        "icon": "fa-duotone fa-user fa-2xl"
+        "icon": "fa-duotone fa-user"
     },
     {
         "id": 2,
         "heading": "Personal",
         "name": "Job title",
         "openModal": "jobTitle",
-        "icon": "fa-duotone fa-briefcase fa-2xl"
+        "icon": "fa-duotone fa-briefcase"
     },
     {
         "id": 3,
         "heading": "Personal",
         "name": "Department",
         "openModal": "department",
-        "icon": "fa-duotone fa-users fa-2xl"
+        "icon": "fa-duotone fa-users"
     },
     {
         "id": 4,
         "heading": "Personal",
         "name": "Company name",
         "openModal": "company",
-        "icon": "fa-duotone fa-building fa-2xl"
+        "icon": "fa-duotone fa-building"
     },
     {
         "id": 5,
         "heading": "Personal",
         "name": "Headline",
         "openModal": "headline",
-        "icon": "fa-duotone fa-heading fa-2xl"
+        "icon": "fa-duotone fa-heading"
     },
     {
         "id": 6,
@@ -40,7 +40,7 @@
         "name": "Email",
         "openModal": "social",
         "socialName": "email",
-        "icon": "fa-duotone fa-envelope fa-2xl"
+        "icon": "fa-duotone fa-envelope"
     },
     {
         "id": 7,
@@ -48,7 +48,7 @@
         "name": "Phone",
         "openModal": "social",
         "socialName": "phone",
-        "icon": "fa-duotone fa-phone fa-2xl"
+        "icon": "fa-duotone fa-phone"
     },
     {
         "id": 8,
@@ -56,7 +56,7 @@
         "name": "Compan URL",
         "openModal": "social",
         "socialName": "company_url",
-        "icon": "fa-duotone fa-browser fa-2xl"
+        "icon": "fa-duotone fa-browser"
     },
     {
         "id": 9,
@@ -64,7 +64,7 @@
         "name": "Link",
         "openModal": "social",
         "socialName": "link",
-        "icon": "fa-duotone fa-link fa-2xl"
+        "icon": "fa-duotone fa-link"
     },
     {
         "id": 10,
@@ -72,6 +72,6 @@
         "name": "Address",
         "openModal": "social",
         "socialName": "address",
-        "icon": "fa-duotone fa-location-dot fa-2xl"
+        "icon": "fa-duotone fa-location-dot"
     }
 ]
