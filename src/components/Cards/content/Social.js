@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux';
-import { updateCardData } from '../../../Redux-store/slices/dataSlice';
+import { connect, useDispatch } from 'react-redux';
+import { openModal, updateCardData } from '../../../Redux-store/slices/dataSlice';
 import { findCardInon } from '../../func/AllFunc';
 
-const Personal = ({ data, isOpen, details, color, saveData }) => {
+const Social = ({ data, isOpen, details, color, saveData, isSocial }) => {
+    const dispatch = useDispatch();
     const [icon, setIcon] = useState()
     useEffect(() => {
         let ficon = findCardInon(details, isOpen)
@@ -12,33 +13,33 @@ const Personal = ({ data, isOpen, details, color, saveData }) => {
     return (
         <>
             {Object.keys(saveData).map((key) => (
-                <>{saveData[key]?.icon !== undefined &&
-                    <div key={key} className='flex card_social gap-2 min-h-[38px] w-full'>
+                saveData[key]?.icon !== undefined ? (
+                    <div key={key} onClick={() => dispatch(openModal({ openModal: 'social', name : key }))} className='flex themeOutLine outline-offset-[1px] outline card_social gap-2 min-h-[38px] w-full'>
                         {/* {console.log(key)} */}
                         {/* Icon */}
-                        <div className={`bg-[rgb(${color})] w-12 h-11 icon_con flex justify-center items-center Social`}>
-                            <i className={`${saveData[key].icon} fa-lg text-white`}></i>
+                        <div className={`bg-[rgb(${color})] icon_con flex justify-center items-center Social`}>
+                            <i className={`${saveData[key].icon} text-white`}></i>
                         </div>
                         {/* Text */}
                         <div className='w-full flex text_con flex-col justify-center items-start p-1'>
                             <span>{saveData[key]?.value}</span>
                             <span>{saveData[key]?.label}</span>
                         </div>
-                    </div>}
-                </>
-            ))}
-            {data[isOpen] !== '{}' && isOpen && data[isOpen]?.saveData !== 'true' && data[isOpen]?.icon !== undefined ?
-                <div className='flex card_social gap-2 min-h-[38px] w-full'>
-                    {/* Icon */}
-                    <div className={`bg-[rgb(${color})] w-12 h-11 icon_con flex justify-center items-center Social`}>
-                        <i className={`${icon} fa-lg text-white`}></i>
-                    </div>
-                    {/* Text */}
-                    <div className='w-full flex text_con flex-col justify-center items-start p-1'>
-                        <span>{data[isOpen]?.value}</span>
-                        <span>{data[isOpen]?.label}</span>
-                    </div>
-                </div> : null
+                    </div>) : null
+            ))
+            }
+            {isSocial && data[isOpen] !== '{}' && isOpen ?
+                    <div className={`flex card_social themeOutLine outline-offset-[1px] outline gap-2 min-h-[38px] w-full ${isOpen !== undefined ? 'card_social_active' : ''}`}>
+                        {/* Icon */}
+                        <div className={`bg-[rgb(${color})] icon_con flex justify-center items-center Social`}>
+                            <i className={`${icon} text-white`}></i>
+                        </div>
+                        {/* Text */}
+                        <div className='w-full flex text_con flex-col justify-center items-start p-1'>
+                            <span>{data[isOpen]?.value}</span>
+                            <span>{data[isOpen]?.label}</span>
+                        </div>
+                    </div> : null
             }
         </>
     )
@@ -50,6 +51,7 @@ const mapStateToProps = state => ({
     isOpen: state.data.isOpen,
     color: state.colors.color,
     details: state.details.details,
+    isSocial: state.data.isSocial,
 });
 
-export default connect(mapStateToProps, { updateCardData })(Personal);
+export default connect(mapStateToProps, { updateCardData })(Social);

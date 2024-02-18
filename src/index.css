@@ -96,14 +96,44 @@
 
 /* Details */
 
+
+.card_social {
+    position: relative;
+    padding: 5px;
+    outline-width: 0px;
+    border-radius: 6px;
+}
+
 .card_social .icon_con {
     background-color: var(--theme-color);
     border-radius: 50%;
+    width: 40px;
+    height: 35px;
 }
 
 .card_social .text_con span {
     font-size: 0.69em;
     font-weight: 700;
+}
+
+.card_social_active {
+    outline-width: 1px;
+}
+
+.card_social:hover {
+    outline-width: 1px;
+    cursor: pointer;
+}
+
+.card_social:hover::after {
+    font-family: "Font Awesome 6 Pro";
+    content: "\f044";
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    color: var(--theme-color);
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .detail_box>.isActive {

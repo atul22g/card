@@ -10,6 +10,7 @@ const Modal = () => {
     const isOpen = useSelector(state => state.data.isOpen);
     const isDelete = useSelector(state => state.data.isDelete);
     const dispatch = useDispatch();
+    // console.log(modals);
     return (
         <>
             {/* Delete Modal */}
