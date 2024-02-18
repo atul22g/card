@@ -14,7 +14,7 @@ const Personal = ({ data, isOpen }) => {
                 : null}
             {/* Name */}
             {data.name && (data?.name?.firstName || data?.name?.middleName || data?.name?.lastName) ?
-                <div onClick={() => dispatch(openModal('name'))} className={`card_personal font-bold text-3xl themeOutLine outline-offset-[1px] outline ${isOpen === 'name' ? 'card_personal_active' : ''}`}>{data?.name?.firstName} {data?.name?.middleName} {data?.name?.lastName}</div>
+                <div onClick={() => dispatch(openModal({openModal: 'name'}))} className={`card_personal font-bold text-3xl themeOutLine outline-offset-[1px] outline ${isOpen === 'name' ? 'card_personal_active' : ''}`}>{data?.name?.firstName} {data?.name?.middleName} {data?.name?.lastName}</div>
                 : null}
 
             {/* JobTitle */}
@@ -24,7 +24,7 @@ const Personal = ({ data, isOpen }) => {
                 : null}
             {/* Name */}
             {data.jobTitle && data.jobTitle.jobTitle ?
-                <div onClick={() => dispatch(openModal('jobTitle'))} className={`card_personal font-semibold text-2xl themeOutLine outline-offset-[1px] outline ${isOpen === 'jobTitle' ? 'card_personal_active' : ''}`}>{data?.jobTitle?.jobTitle}</div>
+                <div onClick={() => dispatch(openModal({openModal:'jobTitle'}))} className={`card_personal font-semibold text-2xl themeOutLine outline-offset-[1px] outline ${isOpen === 'jobTitle' ? 'card_personal_active' : ''}`}>{data?.jobTitle?.jobTitle}</div>
                 : null}
 
             {/* Department */}
@@ -45,7 +45,7 @@ const Personal = ({ data, isOpen }) => {
                 : null}
             {/* Name */}
             {data.company && data.company.company ?
-                <div onClick={() => dispatch(openModal('company'))} className={`card_personal font-semibold text-2xl themeOutLine outline-offset-[1px] outline ${isOpen === 'company' ? 'card_personal_active' : ''}`}>{data?.company?.company}</div>
+                <div onClick={() => dispatch(openModal({openModal:'company'}))} className={`card_personal font-semibold text-2xl themeOutLine outline-offset-[1px] outline ${isOpen === 'company' ? 'card_personal_active' : ''}`}>{data?.company?.company}</div>
                 : null}
 
             {/* Headline */}
@@ -55,7 +55,7 @@ const Personal = ({ data, isOpen }) => {
                 : null}
             {/* Name */}
             {data.headline && data.headline.headline ?
-                <div onClick={() => dispatch(openModal('headline'))} className={`card_personal text-[#525f66] text-sm themeOutLine outline-offset-[1px] outline ${isOpen === 'headline' ? 'card_personal_active' : ''}`}>{data?.headline?.headline}</div>
+                <div onClick={() => dispatch(openModal({openModal:'headline'}))} className={`card_personal text-[#525f66] text-sm themeOutLine outline-offset-[1px] outline ${isOpen === 'headline' ? 'card_personal_active' : ''}`}>{data?.headline?.headline}</div>
                 : null}
         </>
     )

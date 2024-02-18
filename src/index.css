@@ -167,5 +167,5 @@
 }
 
 .removeBtn:hover {
-    background-color: var(--dim-theme-color);
+    background-color: var(--light-theme-color);
 }
