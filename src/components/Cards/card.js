@@ -15,7 +15,7 @@ const Card = ({ loding, colors, fetchColors, Color }) => {
   }, [Color, fetchColors]);
   return (
     // Card container
-    <div className="w-[36.5vw] h-screen grid place-content-center max-md:hidden themeLgbg">
+    <div className="w-[33vw] h-screen grid place-content-center max-md:hidden themeLgbg card_con_left">
       {/* card */}
       <div className="w-[28vw] rounded-lg mb-5 shadow-card">
         {/* Card Header */}

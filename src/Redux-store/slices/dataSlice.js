@@ -33,7 +33,6 @@ const dataSlice = createSlice({
         },
         openModal(state, action) {
             const { openModal, name } = action.payload;
-            console.log(openModal, name);
             state.modals[openModal] = true;
             state.isOpen = (openModal === 'social' ? name : openModal);
             state.isSocial = (name === undefined ? false : true);
@@ -57,6 +56,7 @@ const dataSlice = createSlice({
                 saveData: 'true'
             };
             state.modals[modalName] = false;
+            state.modals['social'] = false;
             state.isOpen = null;
             state.cardData[modalName] = {
                 ...state.cardData[modalName],

@@ -73,5 +73,53 @@
         "openModal": "social",
         "socialName": "address",
         "icon": "fa-duotone fa-location-dot"
+    },
+    {
+        "id": 11,
+        "heading": "Social",
+        "name": "Instagram",
+        "openModal": "social",
+        "socialName": "instagram",
+        "icon": "fa-brands fa-instagram"
+    },
+    {
+        "id": 12,
+        "heading": "Social",
+        "name": "LinkedIn",
+        "openModal": "social",
+        "socialName": "linkedin",
+        "icon": "fa-brands fa-linkedin-in"
+    },
+    {
+        "id": 13,
+        "heading": "Social",
+        "name": "Facebook",
+        "openModal": "social",
+        "socialName": "facebook",
+        "icon": "fa-brands fa-facebook"
+    },
+    {
+        "id": 14,
+        "heading": "Social",
+        "name": "YouTube",
+        "openModal": "social",
+        "socialName": "youtube",
+        "icon": "fa-brands fa-youtube"
+    },
+    {
+        "id": 15,
+        "heading": "Social",
+        "name": "Snapchat",
+        "openModal": "social",
+        "socialName": "snapchat",
+        "icon": "fa-brands fa-snapchat"
+    },
+    {
+        "id": 16,
+        "heading": "Messaging",
+        "name": "Snapchat",
+        "openModal": "social",
+        "socialName": "snapchat",
+        "icon": "fa-brands fa-snapchat"
     }
 ]

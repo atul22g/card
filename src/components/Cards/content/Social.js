@@ -12,23 +12,25 @@ const Social = ({ data, isOpen, details, color, saveData, isSocial }) => {
     }, [details, isOpen])
     return (
         <>
-            {Object.keys(saveData).map((key) => (
-                saveData[key]?.icon !== undefined ? (
+            {Object.keys(data).map((key) => (
+                key !== isOpen ? (
+                data[key]?.icon !== undefined ? (
                     <div key={key} onClick={() => dispatch(openModal({ openModal: 'social', name : key }))} className='flex themeOutLine outline-offset-[1px] outline card_social gap-2 min-h-[38px] w-full'>
-                        {/* {console.log(key)} */}
                         {/* Icon */}
                         <div className={`bg-[rgb(${color})] icon_con flex justify-center items-center Social`}>
-                            <i className={`${saveData[key].icon} text-white`}></i>
+                            <i className={`${data[key].icon} text-white`}></i>
                         </div>
                         {/* Text */}
                         <div className='w-full flex text_con flex-col justify-center items-start p-1'>
-                            <span>{saveData[key]?.value}</span>
-                            <span>{saveData[key]?.label}</span>
+                            <span>{data[key]?.value}</span>
+                            <span>{data[key]?.label}</span>
                         </div>
                     </div>) : null
+                ) : null
             ))
             }
-            {isSocial && data[isOpen] !== '{}' && isOpen ?
+            {
+                isSocial && data[isOpen] !== '{}' && isOpen ?
                     <div className={`flex card_social themeOutLine outline-offset-[1px] outline gap-2 min-h-[38px] w-full ${isOpen !== undefined ? 'card_social_active' : ''}`}>
                         {/* Icon */}
                         <div className={`bg-[rgb(${color})] icon_con flex justify-center items-center Social`}>
