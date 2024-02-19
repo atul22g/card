@@ -74,6 +74,38 @@ const Details = ({ details, fetchDetails, loader, openModal, data }) => {
                     ) : null
                 ))}
             </ul>
+            {/* Business */}
+            <h4 className='text-[0.9rem] font-medium mt-5'>Business</h4>
+            <ul className='mt-3 flex flex-row detail_box flex-wrap gap-6'>
+                {!loader && details.map(General => (
+                    General.heading === "Business" ? (
+                        <li className={`${data.cardData[General.socialName]?.saveData === 'true' ? 'isDesable' : 'isActive'} w-fit`} onClick={data.cardData[General.socialName]?.saveData === 'true' ? null : () => dispatch(openModal({ openModal: General.openModal, name: General.socialName }))} key={General.id}>
+                            <div className='flex flex-col justify-center items-center pt-[1.8rem] pb-2'>
+                                <i className={`${General.icon} fa-2xl`}></i>
+                                <p className='font-normal text-[0.87em] mt-6 mx-3'>{General.name}</p>
+                            </div>
+                        </li>
+                    ) : null
+                ))}
+            </ul>
+            {/* Payment */}
+            <h4 className='text-[0.9rem] font-medium mt-5'>Payment</h4>
+            <ul className='mt-3 flex flex-row detail_box flex-wrap gap-6 pb-2'>
+                {!loader && details.map(General => (
+                    General.heading === "Payment" ? (
+                        <li className={`${data.cardData[General.socialName]?.saveData === 'true' ? 'isDesable' : 'isActive'} w-fit`} onClick={data.cardData[General.socialName]?.saveData === 'true' ? null : () => dispatch(openModal({ openModal: General.openModal, name: General.socialName }))} key={General.id}>
+                            <div className='flex flex-col justify-center items-center pt-[1.8rem] pb-2'>
+                                <i className={`${General.icon} fa-2xl`}></i>
+                                <p className='font-normal text-[0.87em] mt-6 mx-3'>{General.name}</p>
+                            </div>
+                        </li>
+                    ) : null
+                ))}
+            </ul>
+            <div className='border cardBottom_sticky border-white bg-white sticky bottom-0 h-7 flex justify-between items-center gap-3 py-14 px-2'>
+                <p style={{ fontSize: ".875rem", width: "60vw"}}>Creatd by <a style={{color: "#3192d8"}} href='https://github.com/Atugatran'>Atugatran</a> And Love</p>
+                <button className="btn" type="button">Create Card</button>
+            </div>
         </div>
     )
 }

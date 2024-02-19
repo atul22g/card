@@ -117,9 +117,57 @@
     {
         "id": 16,
         "heading": "Messaging",
-        "name": "Snapchat",
+        "name": "WhatsApp",
         "openModal": "social",
-        "socialName": "snapchat",
-        "icon": "fa-brands fa-snapchat"
+        "socialName": "whatsapp",
+        "icon": "fa-brands fa-whatsapp"
+    },
+    {
+        "id": 17,
+        "heading": "Messaging",
+        "name": "Discord",
+        "openModal": "social",
+        "socialName": "discord",
+        "icon": "fa-brands fa-discord"
+    },
+    {
+        "id": 18,
+        "heading": "Messaging",
+        "name": "Telegram",
+        "openModal": "social",
+        "socialName": "telegram",
+        "icon": "fa-brands fa-telegram"
+    },
+    {
+        "id": 19,
+        "heading": "Business",
+        "name": "Github",
+        "openModal": "social",
+        "socialName": "github",
+        "icon": "fa-brands fa-github"
+    },
+    {
+        "id": 20,
+        "heading": "Social",
+        "name": "Twitter",
+        "openModal": "social",
+        "socialName": "twitter",
+        "icon": "fa-brands fa-twitter"
+    },
+    {
+        "id": 21,
+        "heading": "Payment",
+        "name": "PayPal",
+        "openModal": "social",
+        "socialName": "paypal",
+        "icon": "fa-brands fa-paypal"
+    },
+    {
+        "id": 22,
+        "heading": "Payment",
+        "name": "Gpay",
+        "openModal": "social",
+        "socialName": "gpay",
+        "icon": "fa-brands fa-google-pay"
     }
 ]
