@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { closeModal, saveData, openDeleteModal, removeField } from '../../../Redux-store/slices/dataSlice';
+import { closeModal, saveData, openDeleteModal, removeField } from '../../../data/slices/dataSlice';
 import * as personal from './content/personal';
 import * as generial from './content/generial';
 
@@ -33,11 +33,10 @@ const Modal = () => {
                                 <div className="flex items-center border-t-2 border-gray-300 justify-end mx-2 p-6 border-solid border-blueGray-200 rounded-b">
                                     <div className='modalBtn'>
                                         <button
-                                            className="cancelBtn px-5 py-2 outline-none focus:outline-none ml-1 mb-1 ease-linear transition-all duration-150" type="button" onClick={() => dispatch(openDeleteModal({ modal: isOpen, itstrue: false }))} >Cancel </button>
+                                            className="btn border-bg-btn mr-2" type="button" onClick={() => dispatch(openDeleteModal({ modal: isOpen, itstrue: false }))} >Cancel </button>
                                         <button
                                             onClick={() => dispatch(removeField({ modal: isOpen, itstrue: false }))}
-                                            className={`removeBtn px-5  py-2 outline-none focus:outline-none ml-1 mb-1 ease-linear transition-all duration-150"
-                                        type="button`}
+                                            className="btn Primay-btn"
                                         >Remove </button>
                                     </div>
                                 </div>
@@ -75,11 +74,10 @@ const Modal = () => {
                                     </div>
                                     <div className='modalBtn'>
                                         <button
-                                            className="isActive px-5 py-2 outline-none focus:outline-none ml-1 mb-1 ease-linear transition-all duration-150" type="button" onClick={() => dispatch(closeModal(isOpen))} >Close </button>
+                                            className="btn border-bg-btn mr-2" type="button" onClick={() => dispatch(closeModal(isOpen))} >Close </button>
                                         <button
                                             onClick={!data.cardData[isOpen] ? null : () => dispatch(saveData(isOpen))}
-                                            className={`${data.cardData[isOpen] ? 'isActive shadow hover:shadow-lg' : 'isDisable'} px-5  py-2 outline-none focus:outline-none ml-1 mb-1 ease-linear transition-all duration-150"
-                                        type="button`}
+                                            className={`btn ${data.cardData[isOpen] ? 'Primay-btn' : 'disable-btn'}`}
                                         >Save </button>
                                     </div>
                                 </div>

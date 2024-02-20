@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Input, Textarea  } from "@material-tailwind/react";
-import { updateCardData } from '../../../../Redux-store/slices/dataSlice';
+import { updateCardData } from '../../../../data/slices/dataSlice';
 
 export const Name = () => {
     const dispatch = useDispatch();

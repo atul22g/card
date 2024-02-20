@@ -1,0 +1,172 @@
+/*! comman */
+.themeLgbg {
+    background-color: var(--light-theme-color);
+}
+
+.themeBg {
+    background-color: var(--theme-color);
+}
+
+.themeOutLine {
+    outline-color: var(--theme-color);
+}
+
+.smoot_transition{
+    transition: all .3s ease-in-out;
+}
+
+/*! Custom Buttons */
+.btn {
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all .5s;
+    text-align: center;
+}
+
+.Primay-btn {
+    background-color: var(--theme-color);
+    color: var(--white-color);
+    padding: 8px 20px;
+}
+
+.border-bg-btn {
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
+}
+
+.disable-btn {
+    border: 1px solid var(--btn-disable-color);
+    color: var(--btn-disable-color);
+    cursor: not-allowed;
+}
+
+
+/* Hover Custom Buttons */
+.Primay-btn:hover {
+    filter: brightness(90%)
+}
+
+.border-bg-btn:hover {
+    background-color: var(--theme-color);
+    color: var(--white-color);
+}
+
+/*!  Card Data */
+.card-data_comman {
+    color: var(--btn-disable-color);
+}
+
+.card-data {
+    padding: 5px;
+    border-radius: 6px;
+    outline-width: 0px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.card-data_social {
+    min-height: 57px;
+}
+
+.card-data .icon_con {
+    background-color: var(--theme-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 35px;
+}
+
+.card-data_text_con span {
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+
+/*!  Card Data Active */
+.card-data_active {
+    outline-width: 1px;
+}
+
+/*!  Card Data Hover */
+.card-data:hover {
+    outline-width: 1px;
+}
+
+/*!  Card Data Hover After */
+.card-data_social:hover:after {
+    font-family: "Font Awesome 6 Pro";
+    content: "\f044";
+    position: absolute;
+    right: 6px;
+    top: 14px;
+    color: var(--theme-color);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-data-personal:hover:after {
+    font-family: "Font Awesome 6 Pro";
+    content: "\f044";
+    position: absolute;
+    right: 6px;
+    color: var(--theme-color);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/*! card Header */
+.cardHeader {
+    transition: all .3s ease-in-out;
+    position: relative;
+    cursor: pointer;
+}
+
+.cardHeader:hover:after {
+    font-family: "Font Awesome 6 Pro";
+    content: '\f303';
+    color: var(--white-color);
+    border-radius: 50%;
+    margin: 6px;
+    background-color: rgb(0 0 0 / 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8em;
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.cardHeader:hover {
+    filter: brightness(90%)
+}
+
+/*! Card Data Box */
+.detail_box>.isActive {
+    background-color: var(--box-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .15), 0 1px 3px rgba(0, 0, 0, .1);
+    transition: all .5s;
+}
+
+.detail_box>.isActive:active {
+    background-color: var(--dark-box-color);
+}
+
+.detail_box>.isDesable {
+    border-radius: 0.5rem;
+    -webkit-user-select: none;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+.detail_box>.isDesable i,
+.detail_box>.isDesable p {
+    color: var(--box-disable-color);
+}

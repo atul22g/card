@@ -10,7 +10,7 @@ export const Main = () => {
     
     return (
         // Card Container
-        <div className='card_con'>
+        <div className='absolute w-full h-full card_con'>
         {/* Card */}
         <Card/>
         {/* Card Text */}

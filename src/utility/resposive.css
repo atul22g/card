@@ -1,0 +1,37 @@
+@media screen and (max-width: 1000px) {
+    /*? Card Con */
+    .card_con {
+        position: static;
+        display: flex;
+        flex-direction: column;
+    }
+    /* comman */
+    .card_con_left,
+    .card_con_right {
+        position: static;
+    }
+    /* Left */
+    .card_con_left {
+        width: 100%;
+        justify-items: center;
+    }
+    .card_con_left>div, .card_con_left>ul{
+        width: 90vw;
+    }
+     /* Right */
+    .card_con_right{
+        width: 95vw;
+        margin: 10px 20px;
+    }
+
+    /*? Card con bottom sticky */
+    .cardBottom_sticky{
+        width: 90vw;
+    }
+    .cardBottom_sticky p{
+        width: 50vw;
+    }
+    .cardBottom_sticky button{
+        width: 40vw;
+    }
+}

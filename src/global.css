@@ -1,0 +1,15 @@
+:root {
+    --theme-color: rgb(244, 90, 87);
+    --light-theme-color: rgba(244, 90, 87, .25);
+    --btn-disable-color: #b5b7b8;
+    --box-disable-color: #acb9be;
+    --box-color: #f9fafb;
+    --dark-box-color: #e2e3e3;
+    --white-color: #fff;
+    --black-color: #000;
+}
+
+/* Tailwind css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

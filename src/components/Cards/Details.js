@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { fetchDetails } from '../../Redux-store/slices/detailSlice';
-import { openModal } from '../../Redux-store/slices/dataSlice';
+import { fetchDetails } from '../../data/slices/detailSlice';
+import { openModal } from '../../data/slices/dataSlice';
 
 const Details = ({ details, fetchDetails, loader, openModal, data }) => {
     const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const Details = ({ details, fetchDetails, loader, openModal, data }) => {
         fetchDetails();
     }, [fetchDetails]);
     return (
-        <div className='w-[60vw] max-md:w-[100vw] mx-14 my-7 card_con_right'>
+        <div className='w-[60vw] max-md:w-[100vw] mx-14 my-7 absolute card_con_right left-[33vw] top-0 bottom-0 right-0'>
             {/* Heading */}
             <h1 className='text-[1.875rem] font-medium'>Create your first Card</h1>
             <p className='font-light'>Ready to design your card? Pick a field below to get started!</p>
@@ -103,8 +103,8 @@ const Details = ({ details, fetchDetails, loader, openModal, data }) => {
                 ))}
             </ul>
             <div className='border cardBottom_sticky border-white bg-white sticky bottom-0 h-7 flex justify-between items-center gap-3 py-14 px-2'>
-                <p style={{ fontSize: ".875rem", width: "60vw"}}>Creatd by <a style={{color: "#3192d8"}} href='https://github.com/Atugatran'>Atugatran</a> And Love</p>
-                <button className="btn" type="button">Create Card</button>
+                <p style={{ fontSize: ".875rem", width: "60vw"}}>Creatd by ❤️ by  <a style={{color: "#3192d8"}} href='https://github.com/Atugatran'>Atugatran</a></p>
+                <button className="btn Primay-btn w-[18vw]" type="button">Create Card</button>
             </div>
         </div>
     )

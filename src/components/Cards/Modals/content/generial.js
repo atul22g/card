@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Input } from "@material-tailwind/react";
-import { updateCardData } from '../../../../Redux-store/slices/dataSlice';
+import { updateCardData } from '../../../../data/slices/dataSlice';
 import { findCardInon } from '../../../func/AllFunc';
 
 export const Social = () => {
