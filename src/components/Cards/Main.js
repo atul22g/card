@@ -3,7 +3,7 @@ import Card from './card'
 import CardText from './Details'
 import Modal from './Modals/Modal'
 
-export const Main = () => {
+const Main = () => {
     useEffect(() => {
         document.title = 'Create a  New Card';
     }, [])
@@ -20,3 +20,5 @@ export const Main = () => {
         </div>
     )
 }
+
+export default Main

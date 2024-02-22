@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux';
 import { fetchDetails } from '../../data/slices/detailSlice';
 import { openModal } from '../../data/slices/dataSlice';
+import { isEmpty } from '../func/AllFunc';
 
 const Details = ({ details, fetchDetails, loader, openModal, data }) => {
     const dispatch = useDispatch();
@@ -102,9 +103,9 @@ const Details = ({ details, fetchDetails, loader, openModal, data }) => {
                     ) : null
                 ))}
             </ul>
-            <div className='border cardBottom_sticky border-white bg-white sticky bottom-0 h-7 flex justify-between items-center gap-3 py-14 px-2'>
-                <p style={{ fontSize: ".875rem", width: "60vw"}}>Creatd by ❤️ by  <a style={{color: "#3192d8"}} href='https://github.com/Atugatran'>Atugatran</a></p>
-                <button className="btn Primay-btn w-[18vw]" type="button">Create Card</button>
+            <div className='cardBottom_sticky sticky bottom-0 h-7 flex justify-between items-center gap-3 py-14 px-2'>
+                <p className='font-[.875rem] w-[60vw] bg-white py-1'>Creatd by ❤️ by  <a className='text-[#3192d8]' href='https://github.com/Atugatran'>Atugatran</a></p>
+                <button className={`${isEmpty(data.cardData) ? 'disable-btn' : 'Primay-btn'} btn w-[18vw]`} type="button">Create Card</button>
             </div>
         </div>
     )

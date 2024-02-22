@@ -1,8 +1,49 @@
+import { toast } from 'react-toastify';
+
 // Find Social Icon
 export const findCardInon = (details, isOpen) => {
     for (let i = 0; i < details.length; i++) {
         if (details[i].openModal === 'social' && details[i].socialName === isOpen) {
             return details[i].icon
-        } else {}
+        } else { }
     }
+}
+
+// Find Object is empty or not 
+export const isEmpty = (obj) => {
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            if (obj[key]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+let toastcss = {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+}
+
+// Hangle Errors
+export const handleErrors = (errors) => {
+    for (let key in errors) {
+        if (key === 'message') {
+            toast.error(errors[key], toastcss);
+        }
+        else if (errors[key].message !== '') {
+            toast.error(errors[key].message, toastcss);
+        }
+    }
+}
+
+export const handleSuccess = (success) => {
+    toast.success(success, toastcss);
 }
