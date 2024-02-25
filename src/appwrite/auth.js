@@ -7,51 +7,44 @@ let siteURL = process.env.REACT_APP_SITEURL;
 export class AuthService {
     client = new Client();
     account;
-    
+
     constructor() {
         this.client
-        .setEndpoint(conf.appwriteUrl)
-        .setProject(conf.appwriteProjectId);
+            .setEndpoint(conf.appwriteUrl)
+            .setProject(conf.appwriteProjectId);
         this.account = new Account(this.client);
-        
+
     }
-    
+
     async createAccount({ email, password, name }) {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
             if (userAccount) {
-                handleSuccess("Your Account is Creadted")
                 return this.login({ email, password });
             } else {
-                handleErrors({ message: "Your Account is Creadted"});
                 return userAccount;
-
             }
         } catch (error) {
-            handleErrors({ message: "Internal Server Error" });
+            handleErrors({ message: error.message });
         }
     }
     createAccountAuth(name) {
-        console.log(name);
         try {
-            const userAccount = this.account.createOAuth2Session(name,`${siteURL}/card`,`${siteURL}/asdcard`);
-            if (userAccount) {
-                handleSuccess("Your Account is Creadted")
-                // return this.login({ email, password });
-            } else {
-                return userAccount;
-            }
+            return this.account.createOAuth2Session(name, `${siteURL}/card`, `${siteURL}/asdcard`);
         } catch (error) {
-            console.log(error);
-            handleErrors({ message: "Internal Server Error" });
+            handleErrors({ message: error.message });
         }
     }
 
     async login({ email, password }) {
         try {
-            return await this.account.createEmailSession(email, password);
+            const userData = await this.account.createEmailSession(email, password);
+            handleSuccess("Your are Successfully Login")
+            if (userData) {
+                return await authService.getCurrentUser()
+            }
         } catch (error) {
-            throw error;
+            handleErrors({ message: error.message });
         }
     }
 
@@ -59,7 +52,7 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            console.log("Appwrite serive :: getCurrentUser :: error", error);
+            handleErrors({ message: error.message });
         }
 
         return null;
@@ -70,7 +63,7 @@ export class AuthService {
         try {
             await this.account.deleteSessions();
         } catch (error) {
-            console.log("Appwrite serive :: logout :: error", error);
+            handleErrors({ message: error.message });
         }
     }
 }

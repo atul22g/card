@@ -4,7 +4,12 @@ import { togglePassword } from "../../data/slices/togglePassord";
 import { useForm } from 'react-hook-form'
 import { handleErrors } from "../func/AllFunc";
 import authService from "../../appwrite/auth";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
+
 const Signup = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [signup, setSignup] = useState({});
     const [isSubmit, setisSubmit] = useState(false)
@@ -17,14 +22,13 @@ const Signup = () => {
         try {
             setisSubmit(true)
             const userData = await authService.createAccount(data)
-            console.log(userData);
-            if (userData) {
-                const userData = await authService.getCurrentUser()
-                console.log(userData);
+            if (userData.status) {
+                // dispatch(authLogin)
+                navigate('/dashboard')
             }
             setisSubmit(false)
         } catch (error) {
-            handleErrors(error.message)
+            handleErrors({ message: error.message })
         }
     }
     return (
@@ -72,42 +76,34 @@ const Signup = () => {
                                         <i className={`absolute right-3 top-4 cursor-pointer fa-duotone ${icon}`}></i>
                                     </span>
                                 </div>
-                                <div className="mb-10">
+                                <div className="mb-16 relative h-[1em]">
+                                    {isSubmit && <img src="./icons/loader.svg" alt="loader" width={50} height={50} className="absolute top-0 left-6 z-30" />}
                                     <input
                                         disabled={isSubmit}
                                         type="submit"
                                         onClick={() => handleErrors(errors)}
-                                        value="Sign In"
-                                        className="w-full cursor-pointer rounded-md border border-primary bg-primary px-5 py-3 text-base font-medium text-white transition hover:bg-opacity-90 themeBg"
+                                        value="Sign up"
+                                        className="w-full absolute top-0 left-0 loader_btn cursor-pointer rounded-md border border-primary bg-primary px-5 py-3 text-base font-medium text-white transition hover:bg-opacity-90 themeBg"
                                     />
                                 </div>
                             </form>
-                            <p className="mb-6 text-base text-secondary-color dark:text-dark-7">
+                            <p className="mb-2 text-base text-secondary-color dark:text-dark-7">
                                 Connect With
                             </p>
-                            <ul className="-mx-2 mb-12 flex justify-between">
+                            <ul className="-mx-2 mb-2 flex justify-between">
                                 <li onClick={() => authService.createAccountAuth('github')} className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md text-white bg-[#35373a] hover:bg-opacity-90 mr-2">
-                                    <i class="fa-xl text-white fa-brands fa-github mr-2"></i>
+                                    <i className="fa-xl text-white fa-brands fa-github mr-2"></i>
                                     <span className="text-sm">Sign up With Github</span>
                                 </li>
                                 <li onClick={() => authService.createAccountAuth('google')} className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md hover:bg-opacity-90">
-                                    <img className="w-full" src="./icons/google.svg" alt="google" />
+                                    <img className="w-full" src="./icons/sign_up_google.svg" alt="google" />
                                 </li>
                             </ul>
-                            <a
-                                href="/#"
-                                className="mb-2 inline-block text-base text-dark hover:text-primary hover:underline dark:text-white"
-                            >
-                                Forget Password?
-                            </a>
                             <p className="text-base text-body-color dark:text-dark-6">
-                                <span className="pr-0.5">Not a member yet?</span>
-                                <a
-                                    href="/#"
-                                    className="text-primary hover:underline"
-                                >
-                                    Sign Up
-                                </a>
+                                <span className="pr-0.5">Already got an account? </span>
+                                <NavLink to={'/'} className="hover:text-primary hover:underline">
+                                    Log in
+                                </NavLink>
                             </p>
 
                             <div>

@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+import authService from '../../appwrite/auth';
 
 // Find Social Icon
 export const findCardInon = (details, isOpen) => {
@@ -46,4 +47,11 @@ export const handleErrors = (errors) => {
 
 export const handleSuccess = (success) => {
     toast.success(success, toastcss);
+}
+
+
+//  get User Data
+export const getData = async () => {
+    return await authService.getCurrentUser()
+    
 }
