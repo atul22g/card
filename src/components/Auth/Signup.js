@@ -6,6 +6,7 @@ import { handleErrors } from "../func/AllFunc";
 import authService from "../../appwrite/auth";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { login } from "../../data/slices/authSlice";
 
 
 const Signup = () => {
@@ -23,7 +24,7 @@ const Signup = () => {
             setisSubmit(true)
             const userData = await authService.createAccount(data)
             if (userData.status) {
-                // dispatch(authLogin)
+                dispatch(login(userData))
                 navigate('/dashboard')
             }
             setisSubmit(false)
@@ -91,11 +92,11 @@ const Signup = () => {
                                 Connect With
                             </p>
                             <ul className="-mx-2 mb-2 flex justify-between">
-                                <li onClick={() => authService.createAccountAuth('github')} className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md text-white bg-[#35373a] hover:bg-opacity-90 mr-2">
+                                <li onClick={() => {authService.createAccountAuth('github')} } className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md text-white bg-[#35373a] hover:bg-opacity-90 mr-2">
                                     <i className="fa-xl text-white fa-brands fa-github mr-2"></i>
                                     <span className="text-sm">Sign up With Github</span>
                                 </li>
-                                <li onClick={() => authService.createAccountAuth('google')} className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md hover:bg-opacity-90">
+                                <li onClick={() => {authService.createAccountAuth('google')}} className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md hover:bg-opacity-90">
                                     <img className="w-full" src="./icons/sign_up_google.svg" alt="google" />
                                 </li>
                             </ul>

@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
-import { getData } from '../func/AllFunc'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 
 const Sidebar = () => {
-    const [userdata, setUserdata] = React.useState([])
+    const navigate = useNavigate();
+    const islogin = useSelector(state => state.auth.status);
     useEffect(() => {
-        const fetchdata = async () => {
-            let userData = await getData()
-            console.log(userData);
-            setUserdata(userData)
+        if (!islogin) {
+            navigate('/')
         }
-        fetchdata();
-    }, [])
+    }, [islogin, navigate])
+
     return (
         <div
             className="relative flex h-[calc(100vh-2rem)] w-full max-w-[20rem] flex-col rounded-xl bg-white bg-clip-border p-4 text-gray-700 shadow-xl shadow-blue-gray-900/5">

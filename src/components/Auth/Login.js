@@ -8,15 +8,15 @@ import authService from "../../appwrite/auth";
 import { login } from "../../data/slices/authSlice"
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({login}) => {
+const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [login, setLogin] = useState({});
+  const [logindata, setLogindata] = useState({});
   const [isSubmit, setisSubmit] = useState(false)
   const icon = useSelector(state => state.togglePassord.icon);
   const type = useSelector(state => state.togglePassord.type);
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const updateform = (name, value) => setLogin({ ...login, [name]: value })
+  const updateform = (name, value) => setLogindata({ ...logindata, [name]: value })
 
   const loginFunc = async (data) => {
     try {
@@ -24,7 +24,7 @@ const Login = ({login}) => {
       const userData = await authService.login(data)
       if (userData.status) {
         dispatch(login(userData))
-        // navigate('/dashboard')
+        navigate('/dashboard')
       }
       setisSubmit(false)
     } catch (error) {

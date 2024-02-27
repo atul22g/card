@@ -29,8 +29,10 @@ export class AuthService {
         }
     }
     createAccountAuth(name) {
+        console.log(name);
         try {
-            return this.account.createOAuth2Session(name, `${siteURL}/card`, `${siteURL}/asdcard`);
+            let auth = this.account.createOAuth2Session(name, `${siteURL}/dashboard`, `${siteURL}`);
+            console.log(auth);
         } catch (error) {
             handleErrors({ message: error.message });
         }
@@ -59,7 +61,6 @@ export class AuthService {
     }
 
     async logout() {
-
         try {
             await this.account.deleteSessions();
         } catch (error) {
