@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+// import { login } from "../../data/slices/authSlice"
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-
 
 const Sidebar = () => {
-    const navigate = useNavigate();
-    const islogin = useSelector(state => state.auth.status);
-    useEffect(() => {
-        if (!islogin) {
-            navigate('/')
-        }
-    }, [islogin, navigate])
-
+    const userData = useSelector(state => state.auth.userData);
+    console.log(userData);
     return (
         <div
             className="relative flex h-[calc(100vh-2rem)] w-full max-w-[20rem] flex-col rounded-xl bg-white bg-clip-border p-4 text-gray-700 shadow-xl shadow-blue-gray-900/5">

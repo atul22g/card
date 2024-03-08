@@ -6,18 +6,19 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './components/Auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
+import AuthUser from './components/common/authUser';
 function App() {
   return (
     <>
       <ToastContainer />
       <Routes>
         {/* Auth */}
-        <Route index element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
+        <Route index element={<AuthUser authentication={false}> <Login /> </AuthUser>} />
+        <Route path='/signup' element={<AuthUser authentication={false}> <Signup /> </AuthUser>} />
         {/* Card */}
-        <Route path='/card' element={<Main />} />
+        <Route path='/card' element={<AuthUser authentication={false}><Main /></AuthUser>} />
         {/* Dashboard */}
-        <Route path='/dashboard' element={<Dashboard   />} />
+        <Route path='/dashboard' element={<AuthUser> <Dashboard /> </AuthUser>} />
       </Routes>
     </>
   );
