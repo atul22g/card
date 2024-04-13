@@ -10,7 +10,6 @@ export const AuthUser = ({ children, authentication = true }) => {
     const navigate = useNavigate()
     const [loader, setLoader] = useState(true)
     const authStatus = useSelector(state => state.auth.status)
-
     useEffect(() => {
         const getUser = async () => {
             try {
@@ -18,8 +17,6 @@ export const AuthUser = ({ children, authentication = true }) => {
                 dispatch(login(userData))
                 if (userData == null && authentication && authStatus !== authentication) {
                     navigate("/signup")
-                } else if (!authentication && authStatus !== authentication) {
-                    navigate("/")
                 }
                 setLoader(false)
             } catch (error) {
@@ -27,7 +24,7 @@ export const AuthUser = ({ children, authentication = true }) => {
             }
         }
         getUser()
-    }, [authStatus, navigate, authentication])
+    }, [authStatus, authentication, dispatch, navigate])
 
     return (
         loader ? <h1>Loading...</h1> : <>{children}</>

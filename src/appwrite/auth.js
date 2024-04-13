@@ -1,7 +1,6 @@
 import { handleErrors, handleSuccess } from '../components/func/AllFunc';
 import conf from './config';
 import { Client, Account, ID } from "appwrite";
-let siteURL = process.env.REACT_APP_SITEURL;
 
 
 export class AuthService {
@@ -31,7 +30,7 @@ export class AuthService {
     createAccountAuth(name) {
         console.log(name);
         try {
-            let auth = this.account.createOAuth2Session(name, `${siteURL}/dashboard`, `${siteURL}`);
+            let auth = this.account.createOAuth2Session(name, 'http://localhost:3000/dashboard', 'http://localhost:3000');
             console.log(auth);
         } catch (error) {
             handleErrors({ message: error.message });
