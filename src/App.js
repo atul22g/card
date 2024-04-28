@@ -18,7 +18,7 @@ function App() {
         {/* Card */}
         <Route path='/card' element={<AuthUser authentication={false}><Main /></AuthUser>} />
         {/* Dashboard */}
-        <Route path='/dashboard' element={<AuthUser> <Dashboard /> </AuthUser>} />
+        <Route path='/dashboard/cards' element={<AuthUser> <Dashboard /> </AuthUser>} />
       </Routes>
     </>
   );

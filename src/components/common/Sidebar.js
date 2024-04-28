@@ -15,30 +15,31 @@ const Sidebar = () => {
             </div>
             <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
                 <div role="button"
+                    activeClassName="bg-red"
                     className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
                     <div className="grid mr-4 place-items-center">
-                    <i class="fa-duotone fa-address-card"></i>
+                        <i class="fa-duotone fa-address-card"></i>
                     </div>
-                    Cards
+                    Personal Cards
                 </div>
                 <div role="button"
                     className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
                     <div className="grid mr-4 place-items-center">
-                    <i class="fa-duotone fa-user"></i>
+                        <i class="fa-duotone fa-user"></i>
                     </div>
                     Profile
                 </div>
                 <div role="button"
                     className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
                     <div className="grid mr-4 place-items-center">
-                    <i class="fa-duotone fa-gear"></i>
+                        <i class="fa-duotone fa-gear"></i>
                     </div>
                     Settings
                 </div>
                 <div role="button"
                     className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
                     <div className="grid mr-4 place-items-center">
-                    <i class="fa-duotone fa-right-from-bracket"></i>
+                        <i class="fa-duotone fa-right-from-bracket"></i>
                     </div>
                     Log Out
                 </div>

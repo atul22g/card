@@ -25,7 +25,7 @@ const Signup = () => {
             const userData = await authService.createAccount(data)
             if (userData.status) {
                 dispatch(login(userData))
-                navigate('/dashboard')
+                navigate('/dashboard/cards')
             }
             setisSubmit(false)
         } catch (error) {
