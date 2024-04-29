@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import authService from '../../appwrite/auth';
+import {authService} from '../../appwrite/auth';
 
 // Find Social Icon
 export const findCardInon = (details, isOpen) => {

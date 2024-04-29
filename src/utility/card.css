@@ -1,15 +1,4 @@
 /*! comman */
-.themeLgbg {
-    background-color: var(--light-theme-color);
-}
-
-.themeBg {
-    background-color: var(--theme-color);
-}
-
-.themeOutLine {
-    outline-color: var(--theme-color);
-}
 
 .smoot_transition{
     transition: all .3s ease-in-out;

@@ -1,9 +1,13 @@
 import React from 'react'
-import Sidebar from '../common/Sidebar'
+import Navbar from '../common/Navbar'
+import CardDashboard from '../common/CardDashboard'
 
 const Dashboard = () => {
     return (
-        <Sidebar/>
+        <>
+            <Navbar />
+            <CardDashboard />
+        </>
     )
 }
 

@@ -13,3 +13,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    /* Card Dashboard */
+    .card-MainContainer {
+        @apply w-screen flex flex-row;
+    }
+    .card-topContainer {
+        @apply bg-[#f8f9fa] h-[8.3vh] w-[90vw];
+    }
+    .card-sideContainer {
+        @apply bg-[#f8f9fa] h-[90vh] w-[160px];
+    }
+    .card-sideContainer .header {
+        @apply flex items-center justify-center h-[60px] gap-2 text-xl font-bold text-[#333] cursor-pointer;
+    }
+    .card-sideContainer ul{
+        @apply flex items-center justify-center h-[30px] gap-2 text-[#333] cursor-pointer bg-white;
+    }
+    /* card-view-con */
+    .card-view-con{
+        @apply  ml-3;
+    }
+    .card-view-con ul{
+        @apply  flex gap-10 mx-5 my-6 border-b border-[#e2e3e3] text-xl;
+    }
+}

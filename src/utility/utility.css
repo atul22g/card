@@ -1,0 +1,15 @@
+.themeLgbg {
+    background-color: var(--light-theme-color);
+}
+
+.themeBg {
+    background-color: var(--theme-color);
+}
+
+.themeOutLine {
+    outline-color: var(--theme-color);
+}
+
+.textTheme {
+    color: var(--theme-color);
+}

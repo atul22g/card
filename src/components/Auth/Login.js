@@ -4,7 +4,7 @@ import { togglePassword } from "../../data/slices/togglePassord";
 import { useForm } from 'react-hook-form'
 import { handleErrors } from "../func/AllFunc";
 import { NavLink } from "react-router-dom";
-import authService from "../../appwrite/auth";
+import {authService} from "../../appwrite/auth";
 import { login } from "../../data/slices/authSlice"
 import { useNavigate } from 'react-router-dom';
 
@@ -91,7 +91,7 @@ const Login = () => {
                 </li>
               </ul>
               <a
-                href="/#"
+                href="/"
                 className="mb-2 inline-block text-base text-dark hover:text-primary hover:underline dark:text-white"
               >
                 Forget Password?

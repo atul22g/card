@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { togglePassword } from "../../data/slices/togglePassord";
 import { useForm } from 'react-hook-form'
 import { handleErrors } from "../func/AllFunc";
-import authService from "../../appwrite/auth";
+import {authService} from "../../appwrite/auth";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { login } from "../../data/slices/authSlice";

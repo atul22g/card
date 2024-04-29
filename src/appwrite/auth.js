@@ -1,8 +1,32 @@
 import { handleErrors, handleSuccess } from '../components/func/AllFunc';
 import conf from './config';
-import { Client, Account, ID } from "appwrite";
+import { Databases, Client, Account, ID } from "appwrite";
 
 
+
+export class DBService {
+    client = new Client();
+    Databases;
+    constructor() {
+        this.client
+            .setEndpoint(conf.appwriteUrl)
+            .setProject(conf.appwriteProjectId);
+        this.Databases = new Databases(this.client);
+    }
+
+    AddData(user, data) {
+        console.log(user, data);
+
+        const promise = this.Databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID.unique(), { Name: user.name,Email: user.email, Data: JSON.stringify(data) });
+
+        promise.then(function () {
+            console.log("Data Add Successfully");
+            window.location.href = conf.SiteUrl + '/dashboard'; 
+        }, function (error) {
+            console.log("Data Not Add " + error);
+        });
+    }
+}
 export class AuthService {
     client = new Client();
     account;
@@ -69,5 +93,6 @@ export class AuthService {
 }
 
 const authService = new AuthService();
+const dbService = new DBService();
 
-export default authService
+export { authService, dbService }
