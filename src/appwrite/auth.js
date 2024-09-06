@@ -18,7 +18,7 @@ export class DBService {
         console.log(user, data);
 
         const promise = this.Databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID.unique(), { Name: user.name,Email: user.email, Data: JSON.stringify(data) });
-
+        
         promise.then(function () {
             console.log("Data Add Successfully");
             window.location.href = conf.SiteUrl + '/dashboard'; 

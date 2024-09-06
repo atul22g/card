@@ -24,7 +24,7 @@ const Login = () => {
       const userData = await authService.login(data)
       if (userData.status) {
         dispatch(login(userData))
-        navigate('/dashboard/cards')
+        navigate('/dashboard')
       }
       setisSubmit(false)
     } catch (error) {

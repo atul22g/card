@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Login from './components/Auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import AuthUser from './components/common/authUser';
+import Logout from './components/Signout';
 function App() {
   return (
     <>
@@ -19,6 +20,8 @@ function App() {
         <Route path='/card' element={<AuthUser authentication={false}><Main /></AuthUser>} />
         {/* Dashboard */}
         <Route path='/dashboard' element={<AuthUser> <Dashboard /> </AuthUser>} />
+        {/* Log out */}
+        <Route path='/logout' element={<AuthUser authentication={false}><Logout /></AuthUser>} />
       </Routes>
     </>
   );
