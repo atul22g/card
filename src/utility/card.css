@@ -112,9 +112,17 @@
     cursor: pointer;
 }
 
-/* .cardHeader:hover:after {
-    font-family: "Font Awesome 6 Pro";
-    content: '\f303';
+.cardHeaderbtnCon{
+    cursor: default;
+}
+.cardHeaderbtnCon .cardHeaderbtn{
+    display: none;
+}
+.cardHeaderbtnCon:hover .cardHeaderbtn{
+    display: flex;
+}
+.cardHeaderbtn {
+    cursor: pointer;
     color: var(--white-color);
     border-radius: 50%;
     margin: 6px;
@@ -129,7 +137,11 @@
     height: 30px;
     font-size: 15px;
     font-weight: 600;
-} */
+}
+
+.deleteBtn {
+    right: 36px;
+} 
 
 .cardHeader:hover {
     filter: brightness(90%)

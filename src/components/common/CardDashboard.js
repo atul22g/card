@@ -6,28 +6,20 @@ import { dbService } from '../../appwrite/auth';
 import { storeData } from '../../data/slices/databaseSlice';
 import { useLocation } from 'react-router-dom';
 
-
 const CardDashboard = () => {
     const [data, setData] = useState();
-    const [oneData, setOneData] = useState();
-    const dispatch = useDispatch();
     const location = useLocation();
-    
+    const headers = location.search;
+    const dispatch = useDispatch();
+
     useEffect(() => {
         const addData = async () => {
             let data = await dbService.fetchdata();
             setData(data)
             dispatch(storeData(data))
         }
-        const addOneData = async () => {
-            const headers = location.search;
-            let data = await dbService.fetchOnedata(headers);
-            setOneData(data)
-            
-        }
         addData();
-        addOneData()
-    }, [dispatch, location])
+    }, [dispatch])
 
     return (
         <>
@@ -43,18 +35,19 @@ const CardDashboard = () => {
                         ))) : ''}
                     </ul>
                 </div>
-
                 {
-                    oneData ?
-                    <div className='flex flex-col'>
-                    <div className='card-view-con'>
-                        <ul>
-                            <li>Card View</li>
-                            <li>QR Code</li>
-                        </ul>
-                    </div>
-                    <CardPrev />
-                </div> : ``
+                    headers ?
+                        <>
+                            <div className='flex flex-col'>
+                                <div className='card-view-con'>
+                                    <ul>
+                                        <li>Card View</li>
+                                        <li>QR Code</li>
+                                    </ul>
+                                </div>
+                                <CardPrev />
+                            </div>
+                        </> : ''
                 }
             </div>
         </>
@@ -62,5 +55,3 @@ const CardDashboard = () => {
 }
 
 export default CardDashboard
-
-// export default connect()(CardDashboard);

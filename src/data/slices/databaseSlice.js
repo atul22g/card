@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     data: {},
-    name: null,
+    singleData: {},
+    singleDataId: null
 };
 
 const databaseSlice = createSlice({
@@ -11,12 +12,14 @@ const databaseSlice = createSlice({
     reducers: {
         storeData (state, action) { 
             const data = action.payload;
-            state.name = data[0].Name;
             state.data = data;
-            
+        },
+        storeSingleData (state, action) {
+            state.singleData = action.payload;
+            state.singleDataId = action.payload[0].$id;
         }
     }
 });
 
-export const { storeData } = databaseSlice.actions;
+export const { storeData, storeSingleData } = databaseSlice.actions;
 export default databaseSlice.reducer;
