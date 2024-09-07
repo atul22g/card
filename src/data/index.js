@@ -4,6 +4,7 @@ import detailSlice from "./slices/detailSlice";
 import dataSlice from "./slices/dataSlice";
 import togglePassordSlice from "./slices/togglePassord";
 import authSlice from "./slices/authSlice";
+import databaseSlice from "./slices/databaseSlice";
 
 const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
         details: detailSlice,
         data: dataSlice,
         togglePassord: togglePassordSlice,
-        auth: authSlice
+        auth: authSlice,
+        database: databaseSlice
     },
 });
 

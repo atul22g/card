@@ -13,3 +13,7 @@
 .textTheme {
     color: var(--theme-color);
 }
+
+.addColor {
+    color: var(--add-color);
+}

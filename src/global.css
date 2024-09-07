@@ -7,6 +7,7 @@
     --dark-box-color: #e2e3e3;
     --white-color: #fff;
     --black-color: #000;
+    --add-color: #2fd67a
 }
 
 /* Tailwind css */
@@ -18,7 +19,7 @@
 @layer components {
     /* Card Dashboard */
     .card-MainContainer {
-        @apply w-screen flex flex-row;
+        @apply flex flex-row;
     }
     .card-topContainer {
         @apply bg-[#f8f9fa] h-[8.3vh] w-[90vw];
@@ -30,7 +31,10 @@
         @apply flex items-center justify-center h-[60px] gap-2 text-xl font-bold text-[#333] cursor-pointer;
     }
     .card-sideContainer ul{
-        @apply flex items-center justify-center h-[30px] gap-2 text-[#333] cursor-pointer bg-white;
+        @apply flex items-center justify-center h-[30px] gap-2 text-[#333] cursor-pointer;
+    }
+    .card-sideContainer ul li{
+        @apply bg-white;
     }
     /* card-view-con */
     .card-view-con{

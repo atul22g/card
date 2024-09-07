@@ -15,16 +15,27 @@ export class DBService {
     }
 
     AddData(user, data) {
-        console.log(user, data);
+        // console.log(user, data);
+        const Time = new Date().toLocaleTimeString();
+        const promise = this.Databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID.unique(), { Name: user.name, Email: user.email, Data: JSON.stringify(data), Time: Time });
 
-        const promise = this.Databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID.unique(), { Name: user.name,Email: user.email, Data: JSON.stringify(data) });
-        
         promise.then(function () {
             console.log("Data Add Successfully");
-            window.location.href = conf.SiteUrl + '/dashboard'; 
+            window.location.href = conf.SiteUrl + '/dashboard';
         }, function (error) {
             console.log("Data Not Add " + error);
         });
+    }
+
+    async fetchdata() {
+        const promise = await this.Databases.listDocuments( conf.appwriteDatabaseId, conf.appwriteCollectionId, []);
+
+        if (promise.total == 0) {
+            return null;
+        } else {
+            return promise.documents;
+        }
+
     }
 }
 export class AuthService {
