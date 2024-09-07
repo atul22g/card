@@ -13,11 +13,12 @@ const CardData = () => {
         let value = Object.values(key[1])
         value.pop()
         return (
+        key[1].value == undefined ? 
           <div key={key}
             className={`card-data font-semibold text-2xl themeOutLine outline-offset-[1px] !cursor-default`}
           >
             {value.join(' ')}
-          </div>
+          </div> : ''
         );
       })
       }

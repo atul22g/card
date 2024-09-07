@@ -9,9 +9,10 @@ const CardPrev = () => {
     const id = useSelector(state => state.database.singleDataId);
     const location = useLocation();
     const dispatch = useDispatch();
+
     const deleteBtnFunc = (id) => {
         if (window.confirm("Are You Sure")) {
-            console.log(id);
+            dbService.deleteOneData(id);
         }
     }
     useEffect(() => {

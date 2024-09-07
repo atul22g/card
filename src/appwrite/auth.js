@@ -48,6 +48,17 @@ export class DBService {
         }
     }
 
+    async deleteOneData(id) {
+        const promise = await this.Databases.deleteDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, id);
+
+        if (promise) {
+            window.location.href = '/dashboard'
+        }
+        
+    }
+
+
+
 }
 export class AuthService {
     client = new Client();
