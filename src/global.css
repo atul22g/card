@@ -30,11 +30,8 @@
     .card-sideContainer .header {
         @apply flex items-center justify-center h-[60px] gap-2 text-xl font-bold text-[#333] cursor-pointer;
     }
-    .card-sideContainer ul{
-        @apply flex items-center justify-center h-[30px] gap-2 text-[#333] cursor-pointer;
-    }
     .card-sideContainer ul li{
-        @apply bg-white;
+        @apply flex items-center justify-center h-[30px] gap-2 text-[#333] cursor-pointer bg-white;
     }
     /* card-view-con */
     .card-view-con{

@@ -1,6 +1,6 @@
 import { handleErrors, handleSuccess } from '../components/func/AllFunc';
 import conf from './config';
-import { Databases, Client, Account, ID } from "appwrite";
+import { Databases, Client, Account, ID, Query } from "appwrite";
 
 
 
@@ -28,15 +28,26 @@ export class DBService {
     }
 
     async fetchdata() {
-        const promise = await this.Databases.listDocuments( conf.appwriteDatabaseId, conf.appwriteCollectionId, []);
+        const promise = await this.Databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId);
 
         if (promise.total == 0) {
             return null;
         } else {
             return promise.documents;
         }
-
     }
+    async fetchOnedata(parameter) {
+        let para = parameter.replace("%20", " ");
+        para = para.replace("?", "");
+        const promise = await this.Databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId, [Query.equal('Time', [para])]);
+
+        if (promise.total == 0) {
+            return null;
+        } else {
+            return promise.documents;
+        }
+    }
+
 }
 export class AuthService {
     client = new Client();

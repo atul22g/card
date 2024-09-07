@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     data: {},
+    name: null,
 };
 
 const databaseSlice = createSlice({
@@ -10,7 +11,8 @@ const databaseSlice = createSlice({
     reducers: {
         storeData (state, action) { 
             const data = action.payload;
-            console.log(data);
+            state.name = data[0].Name;
+            state.data = data;
             
         }
     }

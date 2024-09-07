@@ -112,7 +112,7 @@
     cursor: pointer;
 }
 
-.cardHeader:hover:after {
+/* .cardHeader:hover:after {
     font-family: "Font Awesome 6 Pro";
     content: '\f303';
     color: var(--white-color);
@@ -129,7 +129,7 @@
     height: 30px;
     font-size: 15px;
     font-weight: 600;
-}
+} */
 
 .cardHeader:hover {
     filter: brightness(90%)
