@@ -16,6 +16,7 @@ const dataSlice = createSlice({
         updateCardData(state, action) {
             const { modal, field, value, icon } = action.payload;
             const updatedCardData = {
+                "modal": modal,
                 ...state.cardData[modal],
                 [field]: value,
                 icon

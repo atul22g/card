@@ -12,6 +12,7 @@ const CardData = () => {
       {arrData && arrData.map((key) => {
         let value = Object.values(key[1])
         value.pop()
+        value.shift();
         return (
         key[1].value === undefined ? 
           <div key={key}

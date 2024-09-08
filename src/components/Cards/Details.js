@@ -8,8 +8,7 @@ import { useLocation } from 'react-router-dom';
 // import { storeSingleData } from '../../data/slices/databaseSlice';
 
 const Details = ({ details, fetchDetails, loader, openModal, data, user }) => {
-    console.log(data.savecardData);
-    
+    // console.log(data.savecardData);
     
     // const location = useLocation();
     const dispatch = useDispatch();
