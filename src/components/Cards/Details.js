@@ -3,11 +3,20 @@ import { connect, useDispatch } from 'react-redux';
 import { fetchDetails } from '../../data/slices/detailSlice';
 import { openModal } from '../../data/slices/dataSlice';
 import { isEmpty } from '../func/AllFunc';
-import {dbService} from "../../appwrite/auth";
+import { dbService } from "../../appwrite/auth";
+import { useLocation } from 'react-router-dom';
+import { storeSingleData } from '../../data/slices/databaseSlice';
 
 const Details = ({ details, fetchDetails, loader, openModal, data, user }) => {
+    const location = useLocation();
     const dispatch = useDispatch();
     useEffect(() => {
+        const addOneData = async () => {
+            const headers = location.search;
+            let data = await dbService.fetchOnedata(headers);
+            dispatch(storeSingleData(data))
+        }
+        addOneData()
         fetchDetails();
     }, [fetchDetails]);
     return (

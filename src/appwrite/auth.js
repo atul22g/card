@@ -37,9 +37,8 @@ export class DBService {
         }
     }
     async fetchOnedata(parameter) {
-        let para = parameter.replace("%20", " ");
-        para = para.replace("?", "");
-        const promise = await this.Databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId, [Query.equal('Time', [para])]);
+        let para = parameter.replace("?", "");
+        const promise = await this.Databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId, [Query.equal('$id', [para])])
 
         if (promise.total === 0) {
             return null;
@@ -50,15 +49,16 @@ export class DBService {
 
     async deleteOneData(id) {
         const promise = await this.Databases.deleteDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, id);
-
         if (promise) {
             window.location.href = '/dashboard'
         }
-
     }
-
-
-
+    async updateData(id) {
+        const promise = await this.Databases.deleteDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, id);
+        if (promise) {
+            window.location.href = '/dashboard'
+        }
+    }
 }
 export class AuthService {
     client = new Client();

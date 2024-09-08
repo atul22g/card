@@ -31,7 +31,7 @@ const CardDashboard = () => {
                     </Link>
                     <ul>
                         {data ? (data.map((item) => (
-                            <li key={item.Time} className='border-b-2 border-r-2 cursor-pointer border-solid border-gray-100 textTheme'><Link to={`/dashboard?${item.Time}`}> {item.Time} </Link></li>
+                            <li key={item.$id} className='border-b-2 border-r-2 cursor-pointer border-solid border-gray-100 textTheme'><Link to={`/dashboard?${item.$id}`}> {item.Time} </Link></li>
                         ))) : ''}
                     </ul>
                 </div>

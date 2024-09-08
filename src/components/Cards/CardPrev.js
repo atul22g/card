@@ -3,10 +3,12 @@ import CardData from './content/CardData'
 import { useDispatch, useSelector } from 'react-redux';
 import { storeSingleData } from '../../data/slices/databaseSlice';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import { dbService } from '../../appwrite/auth';
 
 const CardPrev = () => {
     const id = useSelector(state => state.database.singleDataId);
+    const navigate = useNavigate()
     const location = useLocation();
     const dispatch = useDispatch();
 
@@ -14,6 +16,9 @@ const CardPrev = () => {
         if (window.confirm("Are You Sure")) {
             dbService.deleteOneData(id);
         }
+    }
+    const EditBtnFunc = (id) => {
+        navigate("/card?"+id)
     }
     useEffect(() => {
         const addOneData = async () => {
@@ -30,7 +35,7 @@ const CardPrev = () => {
             <div className="w-[100%] rounded-lg mb-5 shadow-card my-4 mx-9">
                 {/* Card Header */}
                 <div className='w-[100%] min-h-[14vh] rounded-t-lg themeBg cardHeader cardHeaderbtnCon'>
-                    <div className='cardHeaderbtn editBtn'><i className="fa-solid fa-pen-to-square"></i></div>
+                    <div onClick={() => EditBtnFunc(id)} className='cardHeaderbtn editBtn'><i className="fa-solid fa-pen-to-square"></i></div>
                     <div onClick={() => deleteBtnFunc(id)} className='cardHeaderbtn deleteBtn'><i className="fa-solid fa-trash"></i></div>
                     <div className='cardHeaderInner'></div>
                 </div>
