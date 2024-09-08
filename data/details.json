@@ -1,0 +1,173 @@
+[
+    {
+        "id": 1,
+        "heading": "Personal",
+        "name": "name",
+        "openModal": "name",
+        "icon": "fa-duotone fa-user"
+    },
+    {
+        "id": 2,
+        "heading": "Personal",
+        "name": "Job title",
+        "openModal": "jobTitle",
+        "icon": "fa-duotone fa-briefcase"
+    },
+    {
+        "id": 3,
+        "heading": "Personal",
+        "name": "Department",
+        "openModal": "department",
+        "icon": "fa-duotone fa-users"
+    },
+    {
+        "id": 4,
+        "heading": "Personal",
+        "name": "Company name",
+        "openModal": "company",
+        "icon": "fa-duotone fa-building"
+    },
+    {
+        "id": 5,
+        "heading": "Personal",
+        "name": "Headline",
+        "openModal": "headline",
+        "icon": "fa-duotone fa-heading"
+    },
+    {
+        "id": 6,
+        "heading": "General",
+        "name": "Email",
+        "openModal": "social",
+        "socialName": "email",
+        "icon": "fa-duotone fa-envelope"
+    },
+    {
+        "id": 7,
+        "heading": "General",
+        "name": "Phone",
+        "openModal": "social",
+        "socialName": "phone",
+        "icon": "fa-duotone fa-phone"
+    },
+    {
+        "id": 8,
+        "heading": "General",
+        "name": "Compan URL",
+        "openModal": "social",
+        "socialName": "company_url",
+        "icon": "fa-duotone fa-browser"
+    },
+    {
+        "id": 9,
+        "heading": "General",
+        "name": "Link",
+        "openModal": "social",
+        "socialName": "link",
+        "icon": "fa-duotone fa-link"
+    },
+    {
+        "id": 10,
+        "heading": "General",
+        "name": "Address",
+        "openModal": "social",
+        "socialName": "address",
+        "icon": "fa-duotone fa-location-dot"
+    },
+    {
+        "id": 11,
+        "heading": "Social",
+        "name": "Instagram",
+        "openModal": "social",
+        "socialName": "instagram",
+        "icon": "fa-brands fa-instagram"
+    },
+    {
+        "id": 12,
+        "heading": "Social",
+        "name": "LinkedIn",
+        "openModal": "social",
+        "socialName": "linkedin",
+        "icon": "fa-brands fa-linkedin-in"
+    },
+    {
+        "id": 13,
+        "heading": "Social",
+        "name": "Facebook",
+        "openModal": "social",
+        "socialName": "facebook",
+        "icon": "fa-brands fa-facebook"
+    },
+    {
+        "id": 14,
+        "heading": "Social",
+        "name": "YouTube",
+        "openModal": "social",
+        "socialName": "youtube",
+        "icon": "fa-brands fa-youtube"
+    },
+    {
+        "id": 15,
+        "heading": "Social",
+        "name": "Snapchat",
+        "openModal": "social",
+        "socialName": "snapchat",
+        "icon": "fa-brands fa-snapchat"
+    },
+    {
+        "id": 16,
+        "heading": "Messaging",
+        "name": "WhatsApp",
+        "openModal": "social",
+        "socialName": "whatsapp",
+        "icon": "fa-brands fa-whatsapp"
+    },
+    {
+        "id": 17,
+        "heading": "Messaging",
+        "name": "Discord",
+        "openModal": "social",
+        "socialName": "discord",
+        "icon": "fa-brands fa-discord"
+    },
+    {
+        "id": 18,
+        "heading": "Messaging",
+        "name": "Telegram",
+        "openModal": "social",
+        "socialName": "telegram",
+        "icon": "fa-brands fa-telegram"
+    },
+    {
+        "id": 19,
+        "heading": "Business",
+        "name": "Github",
+        "openModal": "social",
+        "socialName": "github",
+        "icon": "fa-brands fa-github"
+    },
+    {
+        "id": 20,
+        "heading": "Social",
+        "name": "Twitter",
+        "openModal": "social",
+        "socialName": "twitter",
+        "icon": "fa-brands fa-twitter"
+    },
+    {
+        "id": 21,
+        "heading": "Payment",
+        "name": "PayPal",
+        "openModal": "social",
+        "socialName": "paypal",
+        "icon": "fa-brands fa-paypal"
+    },
+    {
+        "id": 22,
+        "heading": "Payment",
+        "name": "Gpay",
+        "openModal": "social",
+        "socialName": "gpay",
+        "icon": "fa-brands fa-google-pay"
+    }
+]
