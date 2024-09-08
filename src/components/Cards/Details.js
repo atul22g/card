@@ -5,18 +5,21 @@ import { openModal } from '../../data/slices/dataSlice';
 import { isEmpty } from '../func/AllFunc';
 import { dbService } from "../../appwrite/auth";
 import { useLocation } from 'react-router-dom';
-import { storeSingleData } from '../../data/slices/databaseSlice';
+// import { storeSingleData } from '../../data/slices/databaseSlice';
 
 const Details = ({ details, fetchDetails, loader, openModal, data, user }) => {
-    const location = useLocation();
+    console.log(data.savecardData);
+    
+    
+    // const location = useLocation();
     const dispatch = useDispatch();
     useEffect(() => {
-        const addOneData = async () => {
-            const headers = location.search;
-            let data = await dbService.fetchOnedata(headers);
-            dispatch(storeSingleData(data))
-        }
-        addOneData()
+        // const addOneData = async () => {
+        //     const headers = location.search;
+        //     let data = await dbService.fetchOnedata(headers);
+        //     dispatch(storeSingleData(data))
+        // }
+        // addOneData()
         fetchDetails();
     }, [fetchDetails]);
     return (
@@ -25,7 +28,7 @@ const Details = ({ details, fetchDetails, loader, openModal, data, user }) => {
             <h1 className='text-[1.875rem] font-medium'>Create your first Card</h1>
             <p className='font-light'>Ready to design your card? Pick a field below to get started!</p>
             {/* Add Images  */}
-            <h3 className='text-[1.4rem] font-medium mt-5'>Add images</h3>
+            {/* <h3 className='text-[1.4rem] font-medium mt-5'>Add images</h3> */}
 
             {/* Add your details  */}
             <h3 className='text-[1.4rem] font-medium mt-5'>Add your details</h3>

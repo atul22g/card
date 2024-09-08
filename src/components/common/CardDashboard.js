@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CardPrev from '../Cards/CardPrev'
+import CardPrev from '../cardPrev/CardPrev'
 import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { dbService } from '../../appwrite/auth';
