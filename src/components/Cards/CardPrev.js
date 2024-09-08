@@ -22,7 +22,7 @@ const CardPrev = () => {
             dispatch(storeSingleData(data))
         }
         addOneData()
-    }, [location])
+    }, [location ,dispatch])
 
     return (
         <>

@@ -13,7 +13,7 @@ const CardData = () => {
         let value = Object.values(key[1])
         value.pop()
         return (
-        key[1].value == undefined ? 
+        key[1].value === undefined ? 
           <div key={key}
             className={`card-data font-semibold text-2xl themeOutLine outline-offset-[1px] !cursor-default`}
           >
@@ -25,7 +25,7 @@ const CardData = () => {
       {/* Social */}
       {arrData ? arrData.map((key) => {
         return (
-          key[1].value != undefined ?
+          key[1].value !== undefined ?
 
             <div key={key} className='flex themeOutLine outline-offset-[1px] outline card-data gap-2 min-h-[38px] !cursor-default'>
               {/* Icon */}

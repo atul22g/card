@@ -22,11 +22,11 @@ const Login = () => {
     const handleGetUser = async () => {
       const userData = await authService.getCurrentUser();
       if(userData){
-        window.location.href = '/dashboard'
+        navigate('/dashboard')
       }
     }
     handleGetUser()
-  }, [authService])
+  }, [])
 
 
   const loginFunc = async (data) => {

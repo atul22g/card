@@ -27,7 +27,7 @@ const Signup = () => {
             }
         }
         handleGetUser()
-    }, [authService])
+    }, [])
 
 
     const create = async (data) => {

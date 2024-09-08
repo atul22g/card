@@ -22,6 +22,8 @@ function App() {
         <Route path='/dashboard' element={<AuthUser> <Dashboard /> </AuthUser>} />
         {/* Log out */}
         <Route path='/logout' element={<AuthUser authentication={false}><Logout /></AuthUser>} />
+        {/*  */}
+        <Route path="*" element={<AuthUser authentication={false}> <Login /> </AuthUser>} />
       </Routes>
     </>
   );
