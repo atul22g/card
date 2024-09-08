@@ -30,7 +30,7 @@ export class DBService {
     async fetchdata() {
         const promise = await this.Databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId);
 
-        if (promise.total == 0) {
+        if (promise.total === 0) {
             return null;
         } else {
             return promise.documents;
@@ -41,7 +41,7 @@ export class DBService {
         para = para.replace("?", "");
         const promise = await this.Databases.listDocuments(conf.appwriteDatabaseId, conf.appwriteCollectionId, [Query.equal('Time', [para])]);
 
-        if (promise.total == 0) {
+        if (promise.total === 0) {
             return null;
         } else {
             return promise.documents;
@@ -54,7 +54,7 @@ export class DBService {
         if (promise) {
             window.location.href = '/dashboard'
         }
-        
+
     }
 
 
@@ -87,7 +87,7 @@ export class AuthService {
     createAccountAuth(name) {
         console.log(name);
         try {
-            let auth = this.account.createOAuth2Session(name, 'http://localhost:3000/dashboard', 'http://localhost:3000');
+            let auth = this.account.createOAuth2Session(name, conf.SiteUrl + '/dashboard', conf.SiteUrl);
             console.log(auth);
         } catch (error) {
             handleErrors({ message: error.message });

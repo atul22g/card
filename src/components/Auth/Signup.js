@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { togglePassword } from "../../data/slices/togglePassord";
 import { useForm } from 'react-hook-form'
 import { handleErrors } from "../func/AllFunc";
-import {authService} from "../../appwrite/auth";
+import { authService } from "../../appwrite/auth";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { login } from "../../data/slices/authSlice";
@@ -18,6 +18,17 @@ const Signup = () => {
     const type = useSelector(state => state.togglePassord.type);
     const { register, handleSubmit, formState: { errors } } = useForm()
     const updateform = (name, value) => setSignup({ ...signup, [name]: value })
+
+    useEffect(() => {
+        const handleGetUser = async () => {
+            const userData = await authService.getCurrentUser();
+            if (userData) {
+                window.location.href = '/dashboard'
+            }
+        }
+        handleGetUser()
+    }, [authService])
+
 
     const create = async (data) => {
         try {
@@ -92,11 +103,11 @@ const Signup = () => {
                                 Connect With
                             </p>
                             <ul className="-mx-2 mb-2 flex justify-between">
-                                <li onClick={() => {authService.createAccountAuth('github')} } className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md text-white bg-[#35373a] hover:bg-opacity-90 mr-2">
+                                <li onClick={() => { authService.createAccountAuth('github') }} className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md text-white bg-[#35373a] hover:bg-opacity-90 mr-2">
                                     <i className="fa-xl text-white fa-brands fa-github mr-2"></i>
                                     <span className="text-sm">Sign up With Github</span>
                                 </li>
-                                <li onClick={() => {authService.createAccountAuth('google')}} className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md hover:bg-opacity-90">
+                                <li onClick={() => { authService.createAccountAuth('google') }} className="w-full cursor-pointer px-2 flex h-11 items-center justify-center rounded-md hover:bg-opacity-90">
                                     <img className="w-full" src="./icons/sign_up_google.svg" alt="google" />
                                 </li>
                             </ul>

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { togglePassword } from "../../data/slices/togglePassord";
 import { useForm } from 'react-hook-form'
 import { handleErrors } from "../func/AllFunc";
 import { NavLink } from "react-router-dom";
-import {authService} from "../../appwrite/auth";
+import { authService } from "../../appwrite/auth";
 import { login } from "../../data/slices/authSlice"
 import { useNavigate } from 'react-router-dom';
 
@@ -18,10 +18,22 @@ const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm()
   const updateform = (name, value) => setLogindata({ ...logindata, [name]: value })
 
+  useEffect(() => {
+    const handleGetUser = async () => {
+      const userData = await authService.getCurrentUser();
+      if(userData){
+        window.location.href = '/dashboard'
+      }
+    }
+    handleGetUser()
+  }, [authService])
+
+
   const loginFunc = async (data) => {
     try {
       setisSubmit(true)
       const userData = await authService.login(data)
+
       if (userData.status) {
         dispatch(login(userData))
         navigate('/dashboard')
