@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import {authService} from '../../appwrite/auth';
+import { authService } from '../../appwrite/auth';
 
 // Find Social Icon
 export const findCardInon = (details, isOpen) => {
@@ -22,6 +22,21 @@ export const isEmpty = (obj) => {
     return true;
 }
 
+// find findSingleData 
+export const findSingleData = (arr, find) => {
+    // console.log("arr ");
+    // console.log(arr);
+    // console.log("find ");
+    // console.log(find);
+    
+    for (let index = 0; index < arr.length; index++) {
+        if (arr[index].modal === find) {
+            return true;
+        }
+    }
+}
+
+// Toasta Css
 let toastcss = {
     position: "top-right",
     autoClose: 5000,
@@ -53,5 +68,5 @@ export const handleSuccess = (success) => {
 //  get User Data
 export const getData = async () => {
     return await authService.getCurrentUser()
-    
+
 }
