@@ -13,6 +13,14 @@ const dataSlice = createSlice({
     name: 'data',
     initialState,
     reducers: {
+        setCardData(state, action) {
+            let sData = action.payload;
+            let singleData = sData[0] ? sData[0].Data : '';
+            let jsonSingleData = singleData[0] ? JSON.parse(singleData) : '';
+            state.cardData = jsonSingleData;
+            state.savecardData = jsonSingleData;
+            
+        },
         updateCardData(state, action) {
             const { modal, field, value, icon } = action.payload;
             const updatedCardData = {
@@ -85,5 +93,5 @@ const dataSlice = createSlice({
     },
 });
 
-export const { updateCardData, openModal, closeModal, saveData, openDeleteModal, removeField } = dataSlice.actions;
+export const { updateCardData, openModal, closeModal, saveData, openDeleteModal, removeField, setCardData } = dataSlice.actions;
 export default dataSlice.reducer;

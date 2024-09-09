@@ -5,6 +5,7 @@ import { openModal } from '../../../data/slices/dataSlice';
 
 const Personal = ({ data, isOpen }) => {
     const dispatch = useDispatch();
+    
     return (
         <>
             {/* Name */}

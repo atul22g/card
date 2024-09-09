@@ -53,8 +53,11 @@ export class DBService {
             window.location.href = '/dashboard'
         }
     }
-    async updateData(id) {
-        const promise = await this.Databases.deleteDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, id);
+    async updateData(headers,user, data) {
+        headers = headers.replace("?", "");
+        const Time = new Date().toLocaleTimeString();
+        const promise = await this.Databases.updateDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, headers, { Name: user.name, Email: user.email, Data: JSON.stringify(data), Time: Time });
+        
         if (promise) {
             window.location.href = '/dashboard'
         }
@@ -90,7 +93,7 @@ export class AuthService {
             let auth = this.account.createOAuth2Session(name, conf.SiteUrl + '/dashboard', conf.SiteUrl);
             console.log(auth);
         } catch (error) {
-            handleErrors({ message: error.message });
+            handleErrors({ message: error.messsage });
         }
     }
 

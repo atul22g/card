@@ -22,20 +22,6 @@ export const isEmpty = (obj) => {
     return true;
 }
 
-// find findSingleData 
-export const findSingleData = (arr, find) => {
-    // console.log("arr ");
-    // console.log(arr);
-    // console.log("find ");
-    // console.log(find);
-    
-    for (let index = 0; index < arr.length; index++) {
-        if (arr[index].modal === find) {
-            return true;
-        }
-    }
-}
-
 // Toasta Css
 let toastcss = {
     position: "top-right",
