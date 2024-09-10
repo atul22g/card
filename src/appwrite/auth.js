@@ -88,10 +88,8 @@ export class AuthService {
         }
     }
     createAccountAuth(name) {
-        console.log(name);
         try {
-            let auth = this.account.createOAuth2Session(name, conf.SiteUrl + '/dashboard', conf.SiteUrl);
-            console.log(auth);
+            this.account.createOAuth2Session(name, conf.SiteUrl + '/dashboard', conf.SiteUrl);
         } catch (error) {
             handleErrors({ message: error.messsage });
         }
@@ -113,7 +111,6 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            handleErrors({ message: error.message });
         }
 
         return null;

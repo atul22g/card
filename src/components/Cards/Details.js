@@ -145,7 +145,7 @@ const Details = ({ details, fetchDetails, loader, openModal, data, user }) => {
                     !headers ? (
                         <button onClick={() => dbService.AddData(user, data.savecardData)} className={`${isEmpty(data.cardData) ? 'disable-btn' : 'Primay-btn'} btn w-[18vw]`} type="button">Create Card</button>
                     ) : (
-                        <button onClick={() => dbService.updateData(headers,user, data.savecardData)} className={`${isEmpty(data.cardData) ? 'disable-btn' : 'Primay-btn'} btn w-[18vw]`} type="button">Update Card</button>
+                        <button onClick={() => dbService.updateData(headers, user, data.savecardData)} className={`${isEmpty(data.cardData) ? 'disable-btn' : 'Primay-btn'} btn w-[18vw]`} type="button">Update Card</button>
                     )
 
 

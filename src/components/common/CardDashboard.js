@@ -7,12 +7,15 @@ import { storeData } from '../../data/slices/databaseSlice';
 import { useLocation } from 'react-router-dom';
 
 const CardDashboard = () => {
+    
+    
     const [data, setData] = useState();
     const location = useLocation();
     const headers = location.search;
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
+        console.log("Workingg..");
         const addData = async () => {
             let data = await dbService.fetchdata();
             setData(data)
