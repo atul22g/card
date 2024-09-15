@@ -15,15 +15,16 @@ export class DBService {
     }
 
     AddData(user, data) {
-        // console.log(user, data);
+        console.log(user.$id);
         const Time = new Date().toLocaleTimeString();
-        const promise = this.Databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID.unique(), { Name: user.name, Email: user.email, Data: JSON.stringify(data), Time: Time });
+        const promise = this.Databases.createDocument(conf.appwriteDatabaseId, conf.appwriteCollectionId, ID.unique(), { Name: user.name, Email: user.email, Data: JSON.stringify(data), Time: Time, UserID: user.$id });
 
         promise.then(function () {
             console.log("Data Add Successfully");
             window.location.href = conf.SiteUrl + '/dashboard';
         }, function (error) {
             console.log("Data Not Add " + error);
+            handleErrors({ message: error.message })
         });
     }
 

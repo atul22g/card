@@ -26,7 +26,7 @@ const Login = () => {
       }
     }
     handleGetUser()
-  }, [])
+  }, [navigate])
 
 
   const loginFunc = async (data) => {

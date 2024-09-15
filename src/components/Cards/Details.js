@@ -143,7 +143,7 @@ const Details = ({ details, fetchDetails, loader, openModal, data, user }) => {
                 <p className='font-[.875rem] w-[60vw] bg-white py-1'>Creatd by ❤️ by  <a className='text-[#3192d8]' href='https://github.com/Atugatran'>Atugatran</a></p>
                 {
                     !headers ? (
-                        <button onClick={() => dbService.AddData(user, data.savecardData)} className={`${isEmpty(data.cardData) ? 'disable-btn' : 'Primay-btn'} btn w-[18vw]`} type="button">Create Card</button>
+                        <button onClick={() => dbService.AddData(user, data.savecardData,)} className={`${isEmpty(data.cardData) ? 'disable-btn' : 'Primay-btn'} btn w-[18vw]`} type="button">Create Card</button>
                     ) : (
                         <button onClick={() => dbService.updateData(headers, user, data.savecardData)} className={`${isEmpty(data.cardData) ? 'disable-btn' : 'Primay-btn'} btn w-[18vw]`} type="button">Update Card</button>
                     )
